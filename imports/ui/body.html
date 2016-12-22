@@ -1,0 +1,17 @@
+<body>
+  <div class="container">
+    <header>
+      <h3>Players</h3>
+    </header>
+ 
+    <ul>
+      {{#each players}}
+        {{> player}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
+<template name="player">
+  <li>{{name}}</li>
+</template>
