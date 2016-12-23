@@ -8,7 +8,7 @@ const Schemas = {};
 Schemas.Player = new SimpleSchema({
 	name: {type: String, label: "Name", max: 20},
 	position: {type: String, label: "Position", max: 3},
-	copies: {type: SimpleSchema.Integer, label: "Number of Copies"}
+	rosternumber: {type: Number, label: "Roster #"}
 });
 
 Players.attachSchema(Schemas.Player);
