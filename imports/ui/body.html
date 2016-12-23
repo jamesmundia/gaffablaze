@@ -1,9 +1,12 @@
 <body>
   <div class="container">
     <header>
+
       <h3>Players</h3>
     </header>
- 
+      <div>
+        {{> addPlayerForm}}
+      </div>
     <ul>
       {{#each players}}
         {{> player}}
@@ -13,5 +16,9 @@
 </body>
  
 <template name="player">
-  <li>{{name}}</li>
+  <li>{{name}} - {{position}}</li>
+</template>
+
+<template name="addPlayerForm">
+      {{> quickForm collection=addPlayerToPlayers id="insertPlayerForm" type="insert"}}
 </template>
