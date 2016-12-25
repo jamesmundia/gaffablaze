@@ -1,6 +1,12 @@
 <body>
+  <h1>
+    Gaffa (mvp)
+  </h1>
   <div class="container">
     <header>
+      <div>
+        {{> loginButtons}}
+      </div>
 
       <h3>Players</h3>
     </header>
@@ -14,9 +20,9 @@
     </ul>
   </div>
 </body>
- 
+
 <template name="player">
-  <li>{{name}} - {{position}} - {{rosternumber}}</li>
+  <li>{{name}} - {{position}} - {{rosternumber}} <div class="rating"> Game Rating: {{gamerating}} </div> </li>
 </template>
 
 <template name="addPlayerForm">
