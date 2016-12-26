@@ -22,9 +22,17 @@
 </body>
 
 <template name="player">
-  <li>{{name}} - {{position}} - {{rosternumber}} <div class="rating"> Game Rating: {{gamerating}} </div> </li>
+  <li>{{name}} - {{position}} - {{rosternumber}} <div class="rating"> <br /> Game Rating: {{gamerating}} <br /> <br />  </div> </li>
 </template>
 
 <template name="addPlayerForm">
-      {{> quickForm collection=addPlayerToPlayers id="insertPlayerForm" type="insert"}}
+      {{#autoForm collection=addPlayerToPlayers id="insertPlayerForm" type="insert"}}
+      <fieldset>
+          <legend>Add Player</legend>
+          {{> afQuickField name='name'}}
+          {{> afQuickField name='position'}}
+          {{> afQuickField name='rosternumber'}}
+          <button type="submit" class="btn btn-primary">Insert</button>
+      </fieldset>
+      {{/autoForm}}
 </template>
