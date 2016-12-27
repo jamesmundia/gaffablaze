@@ -17,6 +17,8 @@ Template.addPlayerForm.helpers({
 
 Template.player.events({
 	'click .rating' : function () {
-		console.log('Rating Hath Been Clickethed');
+		var ratingId = this.Players.gamerating;
+		Session.set('selectedRating', 'ratingId');
+		console.log(ratingId);
 	}
 });

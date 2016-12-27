@@ -9,7 +9,12 @@ Schemas.Player = new SimpleSchema({
 	name: {type: String, label: "Name", max: 20},
 	position: {type: String, label: "Position", max: 3},
 	rosternumber: {type: Number, label: "Roster #"},
-	gamerating: {type: Number, label: "Game Rating", optional: true}
+	gamerating: {
+		type: Number, label: "Game Rating",
+		max: 5,
+		defaultValue: 1,
+		optional: true,
+		}
 });
 
 Players.attachSchema(Schemas.Player);

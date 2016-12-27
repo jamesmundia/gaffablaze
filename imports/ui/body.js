@@ -11,5 +11,5 @@ import './body.html';
 Template.body.helpers({
  	players() {
  		return Players.find({});
- 	},
+ 	}
 });
