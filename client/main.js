@@ -16,7 +16,7 @@ Template.addPlayerForm.helpers({
 });
 
 Template.player.events({
-	'click .playerListing, click.increment, click.decrement' : function () {
+	'click.increment, click.decrement' : function () {
 		var playerId = this._id;
 		Session.set('selectedPlayer', playerId);
 
@@ -36,7 +36,7 @@ Template.player.helpers({
 		var playerId = this._id;
 		var selectedPlayer = Session.get('selectedPlayer');
 		if(playerId == selectedPlayer){
-        return "selected"
+      return "selected"
     	}
 		},
 		'selectedPlayer': function(){

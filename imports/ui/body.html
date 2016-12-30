@@ -7,10 +7,16 @@
       <div>
         {{> loginButtons}}
       </div>
+      {{#if currentUser}}
 
       <h3>Players</h3>
+
+      {{else}}
+      <h3>Log In or Create Account to Get Gaffing!</h3>
+      {{/if}}
     </header>
       <div>
+
         {{> addPlayerForm}}
       </div>
     <ul>
@@ -22,18 +28,20 @@
 </body>
 
 <template name="player">
+  {{#if currentUser}}
   <li class= {{selectedClass}}>
     <div class="playerListing"> {{name}} - {{position}} - {{rosternumber}}
         <br /> Game Rating: {{gamerating}}
-
         <button class="increment"> +1 Game Rating </button>
         <button class="decrement"> -1 Game Rating </button>
      </div>
   </li>
  <br /> <br />
+ {{/if}}
 </template>
 
 <template name="addPlayerForm">
+  {{#if currentUser}}
       {{#autoForm collection=addPlayerToPlayers id="insertPlayerForm" type="insert"}}
       <fieldset>
           <legend>Add Player</legend>
@@ -43,4 +51,5 @@
           <button type="submit" class="btn btn-primary">Insert</button>
       </fieldset>
       {{/autoForm}}
+        {{/if}}
 </template>
