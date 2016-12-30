@@ -10,6 +10,6 @@ import './body.html';
 
 Template.body.helpers({
  	players() {
- 		return Players.find({});
+ 		return Players.find({}, { sort: {gamerating: -1, name: 1} });
  	}
 });

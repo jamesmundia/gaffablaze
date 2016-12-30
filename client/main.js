@@ -16,9 +16,33 @@ Template.addPlayerForm.helpers({
 });
 
 Template.player.events({
-	'click .rating' : function () {
-		var ratingId = this.Players.gamerating;
-		Session.set('selectedRating', 'ratingId');
-		console.log(ratingId);
+	'click .playerListing' : function () {
+		var playerId = this._id;
+		Session.set('selectedPlayer', playerId);
+			//console log who is being clicked
+		//var selectedPlayer = Session.get('selectedPlayer');
+		//console.log(selectedPlayer);
+	}, //DONT FORGET YOUR COMMAS
+	'click .increment': function(){
+		var selectedPlayer = Session.get('selectedPlayer');
+		Players.update({ _id: selectedPlayer }, { $inc: { gamerating: 1 } } );
+},
+'click .decrement': function(){
+	var selectedPlayer = Session.get('selectedPlayer');
+	Players.update({ _id: selectedPlayer }, { $inc: { gamerating: -1 } } );
 	}
+});
+
+Template.player.helpers({
+	'selectedClass': function(){
+		var playerId = this._id;
+		var selectedPlayer = Session.get('selectedPlayer');
+		if(playerId == selectedPlayer){
+        return "selected"
+    	}
+		},
+		'selectedPlayer': function(){
+			var selectedPlayer = Session.get('selectedPlayer');
+			return Players.findOne({ _id: selectedPlayer });
+		}
 });

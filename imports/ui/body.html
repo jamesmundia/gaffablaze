@@ -22,7 +22,16 @@
 </body>
 
 <template name="player">
-  <li>{{name}} - {{position}} - {{rosternumber}} <div class="rating"> <br /> Game Rating: {{gamerating}} <br /> <br />  </div> </li>
+  <li class= {{selectedClass}}>  <div class="playerListing"> {{name}} - {{position}} - {{rosternumber}} </div>
+        <br /> Game Rating: {{gamerating}}
+  </li>
+
+  <ul><li>Selected Player: {{selectedPlayer.name}}</li></ul>
+  {{#if selectedPlayer}}
+<button class="increment"> +1 Game Rating </button>
+<button class="decrement"> -1 Game Rating </button>
+ <br /> <br />
+ {{/if}}
 </template>
 
 <template name="addPlayerForm">
