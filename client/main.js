@@ -16,12 +16,10 @@ Template.addPlayerForm.helpers({
 });
 
 Template.player.events({
-	'click .playerListing' : function () {
+	'click .playerListing, click.increment, click.decrement' : function () {
 		var playerId = this._id;
 		Session.set('selectedPlayer', playerId);
-			//console log who is being clicked
-		//var selectedPlayer = Session.get('selectedPlayer');
-		//console.log(selectedPlayer);
+
 	}, //DONT FORGET YOUR COMMAS
 	'click .increment': function(){
 		var selectedPlayer = Session.get('selectedPlayer');
