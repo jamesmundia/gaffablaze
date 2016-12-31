@@ -1,15 +1,10 @@
 <body>
-
   <h1>Gaffa (mvp)</h1>
-
     <header>
-      {{> loginButtons}}
-
+          {{> loginButtons}}
       <h3>My Teams</h3>
     </header>
-
     {{> addTeam}}
-
     <ul>
       {{#each teams}}
         {{> team}}
@@ -17,7 +12,8 @@
     </ul>
 </body>
 
-<template name="player">
+<!--
+ <template name="player">
   {{#if currentUser}}
   <li class= {{selectedClass}}>
     <div class="playerListing"> {{name}} - {{position}} - {{rosternumber}}
@@ -43,3 +39,4 @@
       {{/autoForm}}
         {{/if}}
 </template>
+-->

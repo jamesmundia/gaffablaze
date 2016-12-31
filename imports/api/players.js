@@ -8,12 +8,12 @@ const Schemas = {};
 
 Schemas.Team = new SimpleSchema({
   //figure out a way to define coach id (should just be userId, no? but getting errors)
-  //coachId: {type: String,
-    //label: "CoachId",
-    //autoValue: function() {
-      //      return this.userId
-        //},
-      //autoform: {type: "hidden"} },
+  teamId: {type: String,
+		regEx: SimpleSchema.RegEx.Id,
+    autoValue: function() {
+            return Random.id();
+        },
+      autoform: {type: "hidden"} },
 	teamname: {type: String, label: "Team Name", max: 30},
 	clubname: {type: String, label: "Club Name", max: 30},
 	ageyear: {type: Number, label: "Team Birth Year"},
@@ -21,12 +21,12 @@ Schemas.Team = new SimpleSchema({
 });
 
 Schemas.Player = new SimpleSchema({
-	//playerId: {type: String, label: "PlayerId", autoValue: function() {
-    //        return this.userId
-      //  }, autoform: {type: "hidden"} },
-	// generate a player id here with random??
-	//playerId: {type: String, label: "PlayerId", autovalue: }
-
+	playerId: {type: String,
+		regEx: SimpleSchema.RegEx.Id,
+		autoValue: function() {
+						return Random.id();
+				},
+			autoform: {type: "hidden"} },
 	name: {type: String, label: "Name", max: 30},
 	// return age year of team and attach it to all added players
 	//ageyear: {function () {return Mongo.Collection.Team.ageyear} },
