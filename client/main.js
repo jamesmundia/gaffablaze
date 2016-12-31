@@ -5,17 +5,23 @@ import '../imports/startup/accounts_config.js';
 
 import '../imports/ui/body.js';
 
+import { Teams } from '../imports/api/players.js';
 import { Players } from '../imports/api/players.js';
-
 import { Schemas } from '../imports/api/players.js';
 
-Template.addPlayerForm.helpers({
+Template.addTeam.helpers({
+	addTeamToTeams (){
+		return Teams;
+	}
+});
+
+/* Template.addPlayerForm.helpers({
 	addPlayerToPlayers () {
 		return Players;
 	}
 });
 
-Template.player.events({
+/* Template.player.events({
 	'click.increment, click.decrement' : function () {
 		var playerId = this._id;
 		Session.set('selectedPlayer', playerId);
@@ -44,3 +50,4 @@ Template.player.helpers({
 			return Players.findOne({ _id: selectedPlayer });
 		}
 });
+*/

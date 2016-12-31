@@ -1,30 +1,20 @@
 <body>
-  <h1>
-    Gaffa (mvp)
-  </h1>
-  <div class="container">
+
+  <h1>Gaffa (mvp)</h1>
+
     <header>
-      <div>
-        {{> loginButtons}}
-      </div>
-      {{#if currentUser}}
+      {{> loginButtons}}
 
-      <h3>Players</h3>
-
-      {{else}}
-      <h3>Log In or Create Account to Get Gaffing!</h3>
-      {{/if}}
+      <h3>My Teams</h3>
     </header>
-      <div>
 
-        {{> addPlayerForm}}
-      </div>
+    {{> addTeam}}
+
     <ul>
-      {{#each players}}
-        {{> player}}
+      {{#each teams}}
+        {{> team}}
       {{/each}}
     </ul>
-  </div>
 </body>
 
 <template name="player">

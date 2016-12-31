@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-export const Teams = new Mongo.Collection('team');
+export const Teams = new Mongo.Collection('teams');
 export const Players = new Mongo.Collection('players');
 
 const Schemas = {};
@@ -14,10 +14,10 @@ Schemas.Team = new SimpleSchema({
       //      return this.userId
         //},
       //autoform: {type: "hidden"} },
-	teamname: {type: String, label: "Name", max: 30},
-	clubname: {type: String, label: "Position", max: 30},
+	teamname: {type: String, label: "Team Name", max: 30},
+	clubname: {type: String, label: "Club Name", max: 30},
 	ageyear: {type: Number, label: "Team Birth Year"},
-	players: {type: Mongo.Collection.Players}
+	players: {type: Mongo.Collection.Players, optional: true}
 });
 
 Schemas.Player = new SimpleSchema({
