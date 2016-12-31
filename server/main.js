@@ -1,8 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 
-import '../imports/api/players.js';
+import '../imports/api/collections.js';
 
-import { Players } from '../imports/api/players.js';
+import { Teams } from '../imports/api/collections.js';
+import { Players } from '../imports/api/collections.js';
 
 Meteor.startup(() => {
   // code to run on server at startup

@@ -5,9 +5,10 @@ import '../imports/startup/accounts_config.js';
 
 import '../imports/ui/body.js';
 
-import { Players } from '../imports/api/players.js';
+import { Teams } from '../imports/api/collections.js';
+import { Players } from '../imports/api/collections.js';
 
-import { Schemas } from '../imports/api/players.js';
+import { Schemas } from '../imports/api/collections.js';
 
 Template.addPlayerForm.helpers({
 	addPlayerToPlayers () {
