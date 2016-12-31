@@ -1,15 +1,10 @@
 <body>
-
   <h1>Gaffa (mvp)</h1>
-
     <header>
-      {{> loginButtons}}
-
+          {{> loginButtons}}
       <h3>My Teams</h3>
     </header>
-
     {{> addTeam}}
-
     <ul>
       {{#each teams}}
         {{> team}}
