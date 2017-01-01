@@ -1,0 +1,11 @@
+<template name="mainLayout">
+  <header>
+      <h1>Gaffa (beta)</h1>
+      {{> loginButtons}}
+  </header>
+
+  <main>
+    {{>Template.dynamic template=content}}
+  </main>
+  <footer> (c) Pamoja Technologies</footer>
+</template>

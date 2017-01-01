@@ -4,6 +4,8 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import '../imports/startup/accounts_config.js';
 
 import '../imports/ui/body.js';
+import '../imports/ui/body.html';
+import '../imports/ui/team.html';
 
 import { Teams } from '../imports/api/players.js';
 import { Players } from '../imports/api/players.js';

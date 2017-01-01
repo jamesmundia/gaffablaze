@@ -27,3 +27,5 @@ accounts-ui
 accounts-password
 session
 random
+kadira:flow-router
+kadira:blaze-layout
