@@ -26,7 +26,8 @@ Template.teamsList.helpers ({
 Template.teamPage.onCreated(function() {
 		var self = this;
 		self.autorun(function(){
-			self.subscribe('teams');
+			var id = FlowRouter.getParam('id');
+			self.subscribe('singleTeam', id);
 		});
 });
 

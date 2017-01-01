@@ -1,3 +1,7 @@
 <template name="gaffaTeam">
+  {{#if Template.subscriptionsReady}}
     <a href="/teams/{{_id}}"> <li> {{teamname}} - {{clubname}} - {{ageyear}} </li> </a>
+    {{else}}
+          <p>Loading...</p>
+    {{/if}}
 </template>

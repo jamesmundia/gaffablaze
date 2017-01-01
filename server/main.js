@@ -10,8 +10,14 @@ Meteor.publish('teams', function teamsPublication (){
     return Teams.find({coach: this.userId});
 });
 
+//single Team subscription for performance
+Meteor.publish('singleTeam', function(id){
+  check(id, String);
+  return Teams.find({_id: id});
+});
+
 Meteor.publish('players', function playersPublication (){
-  return Players.find();
+  return Players.find(); //add in logic to bring up players only for this coach or team
 });
 
 Meteor.startup(() => {
