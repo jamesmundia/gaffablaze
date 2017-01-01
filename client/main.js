@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import '../imports/startup/accounts_config.js';
-import '/teams.js'
+import './teams.js';
 
 //import '../imports/ui/main.html';
 

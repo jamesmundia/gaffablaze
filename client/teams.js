@@ -21,8 +21,18 @@ Template.teamsList.helpers ({
   		}
 });
 
+//Break into teamPage file
+
+Template.teamPage.onCreated(function() {
+		var self = this;
+		self.autorun(function(){
+			self.subscribe('teams');
+		});
+});
+
 Template.teamPage.helpers ({
 	teams: () => {
-		return Teams.find({});
+		var id = FlowRouter.getParam('id');
+		return Teams.findOne({_id: id});
 	}
 })
