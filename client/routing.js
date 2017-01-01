@@ -6,12 +6,12 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/teams', {
   action: function() {
-    BlazeLayout.render("mainLayout", {content: "gaffaTeams"});
+    BlazeLayout.render("mainLayout", {content: "teamsList"});
   }
 });
 
-FlowRouter.route('/:teamId', {
+FlowRouter.route('/teams/:teamId', {
   action: function() {
-    BlazeLayout.render("mainLayout", {content: "gaffaTeam"});
+    BlazeLayout.render("mainLayout", {content: "teamPage"});
   }
 });

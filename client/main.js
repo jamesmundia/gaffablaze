@@ -11,11 +11,17 @@ import { Teams } from '../imports/api/players.js';
 import { Players } from '../imports/api/players.js';
 import { Schemas } from '../imports/api/players.js';
 
-Template.gaffaTeams.helpers ({
+Template.teamsList.helpers ({
   teams () {
     return Teams.find({});
   }
 });
+
+Template.teamPage.helpers ({
+	teams () {
+		return Teams.find({});
+	}
+})
 
 /*
 Template.addTeam.helpers({

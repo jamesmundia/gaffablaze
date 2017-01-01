@@ -1,5 +1,6 @@
-Template.gaffaTeams.helpers ({
+/* Template.teamsList.helpers ({
   teams () {
     return Teams.find({});
   }
 });
+ */
