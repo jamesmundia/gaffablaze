@@ -1,0 +1,10 @@
+<template name="gaffaTeams">
+    <a href="/">Home</a> <br/>
+        <!-- <li> {{teamname}} - {{clubname}} - {{ageyear}} </li> -->
+        <ul>
+      {{#each teams}}
+        {{> gaffaTeam}}
+      {{/each}}
+    </ul>
+
+</template>

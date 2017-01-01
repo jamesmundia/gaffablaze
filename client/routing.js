@@ -1,11 +1,17 @@
 FlowRouter.route('/', {
   action: function() {
-    BlazeLayout.render("main", {content: "home"});
+    BlazeLayout.render("mainLayout", {content: "gaffaHome"});
+  }
+});
+
+FlowRouter.route('/teams', {
+  action: function() {
+    BlazeLayout.render("mainLayout", {content: "gaffaTeams"});
   }
 });
 
 FlowRouter.route('/:teamId', {
   action: function() {
-    BlazeLayout.render("main", {content: "team"});
+    BlazeLayout.render("mainLayout", {content: "gaffaTeam"});
   }
 });

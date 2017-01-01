@@ -3,21 +3,28 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import '../imports/startup/accounts_config.js';
 
-import '../imports/ui/body.js';
-import '../imports/ui/body.html';
-import '../imports/ui/team.html';
+import '../imports/templateHelpers/helpers.js'
+
+//import '../imports/ui/main.html';
 
 import { Teams } from '../imports/api/players.js';
 import { Players } from '../imports/api/players.js';
 import { Schemas } from '../imports/api/players.js';
 
+Template.gaffaTeams.helpers ({
+  teams () {
+    return Teams.find({});
+  }
+});
+
+/*
 Template.addTeam.helpers({
 	addTeamToTeams (){
 		return Teams;
 	}
 });
 
-/* Template.addPlayerForm.helpers({
+Template.addPlayerForm.helpers({
 	addPlayerToPlayers () {
 		return Players;
 	}
