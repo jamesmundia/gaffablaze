@@ -2,30 +2,15 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import '../imports/startup/accounts_config.js';
-
-import '../imports/templateHelpers/helpers.js'
+import '/teams.js'
 
 //import '../imports/ui/main.html';
 
-Meteor.subscribe('teams');
 Meteor.subscribe('players');
 
 import { Teams } from '../imports/api/players.js';
 import { Players } from '../imports/api/players.js';
 import { Schemas } from '../imports/api/players.js';
-
-
-Template.teamsList.helpers ({
-  teams () {
-    return Teams.find({});
-  }
-});
-
-Template.teamPage.helpers ({
-	teams () {
-		return Teams.find({});
-	}
-})
 
 //helper for adding teams via Schema
 Template.teamsList.helpers({

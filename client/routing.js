@@ -10,7 +10,7 @@ FlowRouter.route('/teams', {
   }
 });
 
-FlowRouter.route('/teams/:_id', {
+FlowRouter.route('/teams/:id', {
   action: function() {
     BlazeLayout.render("mainLayout", {content: "teamPage"});
   }

@@ -12,10 +12,16 @@
           {{/autoForm}}
 
         <!-- <li> {{teamname}} - {{clubname}} - {{ageyear}} </li> -->
-        <ul>
-      {{#each teams}}
-        {{> gaffaTeam}}
-      {{/each}}
-    </ul>
+
+
+<ul>
+    {{#if Template.subscriptionsReady}}
+        {{#each teams}}
+            {{> gaffaTeam}}
+        {{/each}}
+    {{else}}
+          <p>Loading...</p>
+    {{/if}}
+</ul>
 
 </template>
