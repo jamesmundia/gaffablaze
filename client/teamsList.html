@@ -1,0 +1,27 @@
+<template name="teamsList">
+    <a href="/">Home</a> <br/>
+
+          {{#autoForm collection=addTeamToTeams id="insertTeamForm" type="insert"}}
+          <fieldset>
+              <legend>Add Team</legend>
+              {{> afQuickField name='teamname'}}
+              {{> afQuickField name='clubname'}}
+              {{> afQuickField name='ageyear'}}
+              <button type="submit" class="btn btn-primary">Insert</button>
+          </fieldset>
+          {{/autoForm}}
+
+        <!-- <li> {{teamname}} - {{clubname}} - {{ageyear}} </li> -->
+
+
+<ul>
+    {{#if Template.subscriptionsReady}}
+        {{#each teams}}
+            {{> gaffaTeam}}
+        {{/each}}
+    {{else}}
+          <p>Loading...</p>
+    {{/if}}
+</ul>
+
+</template>
