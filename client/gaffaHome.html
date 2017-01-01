@@ -1,5 +1,15 @@
 <template name="gaffaHome">
-    <p>Welcome, Boss!</p>
+    <div class="billboard">
+      <h2>Gaffa</h2>
+      {{#if currentUser}}
+          <p>  <a href="/teams"> My Teams </a> </p>
+            {{else}}
+            <p> Login to see your teams.<br />
+            No account yet? Create one to get started!</p>
 
-    <p>  <a href="/teams"> My Teams </a> </p>
+          {{/if}}
+
+    </div>
+
+
 </template>

@@ -7,7 +7,13 @@ export const Players = new Mongo.Collection('players');
 const Schemas = {};
 
 Schemas.Team = new SimpleSchema({
-  //figure out a way to define coach id (should just be userId, no? but getting errors)
+  /*figure out how to attach Coach User ID to all teams created by that coach:
+  coach: {type: String,
+    autoValue: function() {
+            return this.userId();
+            },
+        autoform: {type: "hidden"} },
+        */
   teamId: {type: String,
 		regEx: SimpleSchema.RegEx.Id,
     autoValue: function() {
