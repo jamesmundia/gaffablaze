@@ -10,7 +10,7 @@ Schemas.Team = new SimpleSchema({
   /*figure out how to attach Coach User ID to all teams created by that coach:  */
   coach: {type: String,
     autoValue: function() {
-            return this.userId();
+            return Meteor.userId();
             },
         autoform: {type: "hidden"} },
 

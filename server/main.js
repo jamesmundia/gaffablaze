@@ -7,7 +7,7 @@ import { Players } from '../imports/api/players.js';
 import { Schemas } from '../imports/api/players.js';
 
 Meteor.publish('teams', function teamsPublication (){
-    return Teams.find();
+    return Teams.find({coach: this.userId});
 });
 
 Meteor.publish('players', function playersPublication (){
