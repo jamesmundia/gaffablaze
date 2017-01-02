@@ -7,20 +7,25 @@ import { Schemas } from '../../imports/api/data.js';
 
 import '../teams/teams.js'
 
+// delete if onCreated works
 Meteor.subscribe('players');
 
-Template.teamPage.helpers ({
-  players: () => {
-    return Players.find({});
-  }
-  //helper for adding players via Schema
-  //addPlayerToPlayers (){
-  	//	return Players;
-  	//}
-});
+/*//Helper below replaces [Meteor.subscribe('teams');]
+Template.teamPage.onCreated(function() {
+		var self = this;
+		self.autorun(function(){
+			self.subscribe('players');
+		});
+});*/
 
 Template.addPlayer.helpers ({
   addPlayerToPlayers () {
     return Players;
+  }
+});
+
+Template.teamPage.helpers ({
+  players: () => {
+    return Players.find({});
   }
 });
