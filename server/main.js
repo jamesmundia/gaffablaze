@@ -16,13 +16,10 @@ Meteor.publish('singleTeam', function(id){
   return Teams.find({_id: id});
 });
 
-Meteor.publish('players', function playersPublication (){
-  return Players.find(); //add in logic to bring up players only for this coach or team
+Meteor.publish('players', function(){
+  return Players.find();
 });
 
 Meteor.startup(() => {
-  //Checking if schema works
-  //Players.insert ({name: "Gack Back", position: "CB"}, (error, result) => {
-  //	console.log(error)
-  //});
+
 });

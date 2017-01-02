@@ -27,16 +27,21 @@ Schemas.Team = new SimpleSchema({
 });
 
 Schemas.Player = new SimpleSchema({
-/*	playerId: {type: String,
+	playerId: {type: String,
 		regEx: SimpleSchema.RegEx.Id,
 		autoValue: function() {
 						return Random.id();
 				},
-			autoform: {type: "hidden"} },*/
+			autoform: {type: "hidden"} },
 	name: {type: String, label: "Name", max: 30},
 	// return age year of team and attach it to all added players
-	//ageyear: {function () {return Mongo.Collection.Team.ageyear} },
-
+  /*
+	age: {type: Number,
+        autoValue: function () {
+          return this.Teams.ageyear.findOne();
+        },
+        autoform: {type: "hidden"}
+      },*/
 	position: {type: String, label: "Position", max: 13},
 	rosternumber: {type: Number, label: "Roster Number"}
 });

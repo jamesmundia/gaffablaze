@@ -42,5 +42,8 @@ Template.teamPage.helpers ({
 	teams: () => {
 		var id = FlowRouter.getParam('id');
 		return Teams.findOne({_id: id});
-	}
+	},
+	players: () => {
+    return Players.find({});
+  }
 })
