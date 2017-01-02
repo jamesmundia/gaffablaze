@@ -2,30 +2,15 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import '../imports/startup/accounts_config.js';
-import './teams.js';
 
-//import '../imports/ui/main.html';
+import { Teams } from '../imports/api/data.js';
+import { Players } from '../imports/api/data.js';
+import { Schemas } from '../imports/api/data.js';
 
-Meteor.subscribe('players');
-
-import { Teams } from '../imports/api/players.js';
-import { Players } from '../imports/api/players.js';
-import { Schemas } from '../imports/api/players.js';
-
-//helper for adding teams via Schema
-Template.teamsList.helpers({
-	addTeamToTeams (){
-		return Teams;
-	}
-});
+import './teams/teams.js';
+import './players/players.js';
 
 /*
-Template.addPlayerForm.helpers({
-	addPlayerToPlayers () {
-		return Players;
-	}
-});
-
  Template.player.events({
 	'click.increment, click.decrement' : function () {
 		var playerId = this._id;

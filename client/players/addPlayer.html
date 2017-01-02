@@ -1,0 +1,11 @@
+<template name="addPlayer">
+  {{#autoForm collection=addPlayerToPlayers id="addPlayerForm" type="insert"}}
+  <fieldset>
+      <legend>Add Player</legend>
+      {{> afQuickField name='name'}}
+      {{> afQuickField name='position'}}
+      {{> afQuickField name='rosternumber'}}
+      <button type="submit" class="btn btn-primary">Insert</button>
+  </fieldset>
+  {{/autoForm}}
+</template>
