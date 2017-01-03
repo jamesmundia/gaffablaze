@@ -46,4 +46,4 @@ Template.teamPage.helpers ({
 	players: () => {
     return Players.find({});
   }
-})
+});

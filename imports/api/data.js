@@ -33,21 +33,21 @@ Schemas.Player = new SimpleSchema({
 				        return Random.id();
 				        },
 		             autoform: {type: "hidden"} },
+
 //attach this teamId to this player for later pub, sub needs
-  teamId: {type: String,
-          autoValue: function() {
-            return this.Teams.find();
-              },
+  onTeam: {type: String,
+          autoform: {type: "hidden"}
           },
 	name: {type: String, label: "Name", max: 30},
-/*return age year of team and attach it to all added players
+/*
+return age year of team and attach it to all added players
 	age: {type: Number,
         autoValue: function () {
           return this.Teams.ageyear.findOne();
         },
         autoform: {type: "hidden"}
       },
-      */
+*/
 	position: {type: String, label: "Position", max: 13},
 	rosternumber: {type: Number, label: "Roster Number"}
 });
