@@ -7,8 +7,8 @@ import { Teams } from '../imports/api/data.js';
 import { Players } from '../imports/api/data.js';
 import { Schemas } from '../imports/api/data.js';
 
-Meteor.publish('teams', function teamsPublication (){
-    return Teams.find({coach: this.userId});
+Meteor.publish('teams', function (){
+    return Teams.find();
 });
 
 //single Team subscription for performance

@@ -14,13 +14,17 @@ Template.teamsList.helpers({
 	}
 });
 
-//Helper below replaces [Meteor.subscribe('teams');]
+Meteor.subscribe('teams');
+
+//Helper below replaces
+/*
 Template.teamsList.onCreated(function() {
 		var self = this;
 		self.autorun(function(){
 			self.subscribe('teams');
 		});
 });
+*/
 
 Template.teamsList.helpers ({
   teams: () => {
@@ -28,19 +32,17 @@ Template.teamsList.helpers ({
   		}
 });
 
-//Break into teamPage file
-
-Template.teamPage.onCreated(function() {
-				var self = this;
-				self.autorun(function (){
-					var teamId = FlowRouter.getParam('teamId');
-					self.subscribe('teamId')
-					return Teams.findOne({teamId: teamId});
-				})
+//This finds the teamId from the route and loads that data from the page
+Template.teamPage.helpers ({
+	teams: ()=> {
+		var teamId = FlowRouter.getParam('teamId');
+		return Teams.findOne({teamId: teamId});
+	}
 		});
 
 Template.gaffaTeam.helpers ({
 	teams: () => {
+		// should this be teamId here?
 		var id = FlowRouter.getParam('teamId');
 		return Teams.findOne({teamId: teamId});
 	},
