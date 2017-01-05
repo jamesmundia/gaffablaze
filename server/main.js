@@ -11,9 +11,9 @@ Meteor.publish('teams', function teamsPublication (){
 });
 
 //single Team subscription for performance
-Meteor.publish('singleTeam', function(id){
-  check(id, String);
-  return Teams.find({_id: id});
+Meteor.publish('singleTeam', function(teamId){
+  check(teamId, String);
+  return Teams.find({teamId: teamId});
 });
 
 Meteor.publish('players', function(){

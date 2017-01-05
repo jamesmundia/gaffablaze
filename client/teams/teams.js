@@ -33,15 +33,24 @@ Template.teamsList.helpers ({
 Template.teamPage.onCreated(function() {
 		var self = this;
 		self.autorun(function(){
-			var id = FlowRouter.getParam('id');
-			self.subscribe('singleTeam', id);
+			var teamId = FlowRouter.getParam('teamId');
+			self.subscribe('singleTeam', teamId);
 		});
 });
 
-Template.teamPage.helpers ({
+Template.gaffaTeam.helpers ({
+	pathForTeam: function () {
+		var team = this;
+		var params = {
+			teamId: this.teamId
+		};
+		var routeName = "pageForTeam";
+		var path = FlowRouter.path(routeName, params);
+		return path;
+	},
 	teams: () => {
-		var id = FlowRouter.getParam('id');
-		return Teams.findOne({_id: id});
+		var id = FlowRouter.getParam('teamId');
+		return Teams.findOne({teamId: teamId});
 	},
 	players: () => {
     return Players.find({});

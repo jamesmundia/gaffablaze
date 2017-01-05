@@ -1,3 +1,5 @@
+import './teams/teams.js'
+
 FlowRouter.route('/', {
   action: function() {
     BlazeLayout.render("mainLayout", {content: "gaffaHome"});
@@ -10,7 +12,7 @@ FlowRouter.route('/teams', {
   }
 });
 
-FlowRouter.route('/teams/:id', {
+FlowRouter.route('/teams/:teamId', {
   action: function() {
     BlazeLayout.render("mainLayout", {content: "teamPage"});
   }
