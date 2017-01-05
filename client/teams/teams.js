@@ -31,23 +31,15 @@ Template.teamsList.helpers ({
 //Break into teamPage file
 
 Template.teamPage.onCreated(function() {
-		var self = this;
-		self.autorun(function(){
-			var teamId = FlowRouter.getParam('teamId');
-			self.subscribe('singleTeam', teamId);
+				var self = this;
+				self.autorun(function (){
+					var teamId = FlowRouter.getParam('teamId');
+					self.subscribe('teamId')
+					return Teams.findOne({teamId: teamId});
+				})
 		});
-});
 
 Template.gaffaTeam.helpers ({
-	pathForTeam: function () {
-		var team = this;
-		var params = {
-			teamId: this.teamId
-		};
-		var routeName = "pageForTeam";
-		var path = FlowRouter.path(routeName, params);
-		return path;
-	},
 	teams: () => {
 		var id = FlowRouter.getParam('teamId');
 		return Teams.findOne({teamId: teamId});

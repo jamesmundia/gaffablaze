@@ -1,6 +1,6 @@
 <template name="gaffaTeam">
   {{#if Template.subscriptionsReady}}
-    <a href="/teams/{{pathForTeam}}"> <li> {{teamname}} - {{clubname}} - {{ageyear}} </li> </a>
+    <a href="/teams/{{teamId}}"> <li> {{teamname}} - {{clubname}} - {{ageyear}} </li> </a>
     {{else}}
           <p>Loading...</p>
     {{/if}}

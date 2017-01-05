@@ -1,3 +1,4 @@
+//SERVER CODE
 import { Meteor } from 'meteor/meteor';
 
 import '../imports/api/data.js';
@@ -11,10 +12,12 @@ Meteor.publish('teams', function teamsPublication (){
 });
 
 //single Team subscription for performance
+/*
 Meteor.publish('singleTeam', function(teamId){
   check(teamId, String);
   return Teams.find({teamId: teamId});
 });
+*/
 
 Meteor.publish('players', function(){
   return Players.find();

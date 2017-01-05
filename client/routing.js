@@ -13,7 +13,10 @@ FlowRouter.route('/teams', {
 });
 
 FlowRouter.route('/teams/:teamId', {
-  action: function() {
-    BlazeLayout.render("mainLayout", {content: "teamPage"});
+  // print params in Console
+  action: function(params, queryParams) {
+    // console.log("Params:", params);
+    // console.log("Query Params:", queryParams);
+  BlazeLayout.render("mainLayout", {content: "teamPage"});
   }
 });
