@@ -19,4 +19,5 @@ Template.addPlayer.helpers ({
   players: () => {
     return Players.find({});
   }
-});*/
+});
+*/
