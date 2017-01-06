@@ -9,6 +9,22 @@ import '../teams/teams.js'
 
 Meteor.subscribe('players');
 
+/*
+var teamIdhooks = {
+  after: {
+    insert: function(doc){
+      var teamId = FlowRouter.getParam('teamId');
+      doc.teamId = teamId;
+      return doc;
+    }
+  }
+};
+
+AutoForm.addhooks({'addPlayerForm', teamIdhooks});
+*/
+
+
+
 Template.addPlayer.helpers ({
   addPlayerToPlayers () {
     return Players;

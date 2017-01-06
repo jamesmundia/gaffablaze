@@ -35,11 +35,10 @@ Schemas.Player = new SimpleSchema({
 		             autoform: {type: "hidden"} },
 
 //attach this teamId to this player for later pub, sub needs
-/*
-  onTeam: {type: String,
+
+  teamId: {type: String,
           autoform: {type: "hidden"}
           },
-*/
 	name: {type: String, label: "Name", max: 30},
 /*
 return age year of team and attach it to all added players
