@@ -16,6 +16,12 @@ Template.addPlayer.helpers ({
 });
 
 /*Template.teamPage.helpers ({
+  addPlayerToPlayers () {
+    return Players;
+  }
+});*/
+
+/*Template.teamPage.helpers ({
   players: () => {
     return Players.find({});
   }

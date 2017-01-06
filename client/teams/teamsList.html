@@ -11,17 +11,14 @@
           </fieldset>
           {{/autoForm}}
 
-        <!-- <li> {{teamname}} - {{clubname}} - {{ageyear}} </li> -->
-
-
 <ul>
-    {{#if Template.subscriptionsReady}}
+     {{#if Template.subscriptionsReady}}
         {{#each teams}}
             {{> gaffaTeam}}
         {{/each}}
     {{else}}
           <p>Loading...</p>
-    {{/if}}
+     {{/if}}
 </ul>
 
 </template>
