@@ -7,7 +7,6 @@ import { Schemas } from '../../imports/api/data.js';
 
 import '../teams/teams.js'
 
-// delete if onCreated works
 Meteor.subscribe('players');
 
 Template.addPlayer.helpers ({

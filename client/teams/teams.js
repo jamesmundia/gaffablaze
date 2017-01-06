@@ -7,14 +7,16 @@ import { Teams } from '../../imports/api/data.js';
 import { Players } from '../../imports/api/data.js';
 import { Schemas } from '../../imports/api/data.js';
 
+import '../players/players.js'
+
+Meteor.subscribe('teams');
+
 //helper for adding teams via Schema
 Template.teamsList.helpers({
 	addTeamToTeams (){
 		return Teams;
 	}
 });
-
-Meteor.subscribe('teams');
 
 //Helper below replaces
 /*
@@ -37,9 +39,14 @@ Template.teamPage.helpers ({
 	teams: ()=> {
 		var teamId = FlowRouter.getParam('teamId');
 		return Teams.findOne({teamId: teamId});
+	},
+	//Print players on Team Page?
+	players: ()=> {
+		return Players.find({});
 	}
 		});
 
+//Gets teamId for the route so that we're directed to the right team?
 Template.gaffaTeam.helpers ({
 	teams: () => {
 		// should this be teamId here?
