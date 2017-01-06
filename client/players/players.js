@@ -9,7 +9,6 @@ import '../teams/teams.js'
 
 Meteor.subscribe('players');
 
-/*
 var teamIdhooks = {
   after: {
     insert: function(doc){
@@ -20,10 +19,7 @@ var teamIdhooks = {
   }
 };
 
-AutoForm.addhooks({'addPlayerForm', teamIdhooks});
-*/
-
-
+AutoForm.addhooks('addPlayerForm', teamIdhooks);
 
 Template.addPlayer.helpers ({
   addPlayerToPlayers () {

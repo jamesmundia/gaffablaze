@@ -37,7 +37,8 @@ Schemas.Player = new SimpleSchema({
 //attach this teamId to this player for later pub, sub needs
 
   teamId: {type: String,
-          autoform: {type: "hidden"}
+          //autoform: {type: "hidden"}
+          optional: true
           },
 	name: {type: String, label: "Name", max: 30},
 /*
