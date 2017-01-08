@@ -2,7 +2,7 @@
 import { Meteor } from 'meteor/meteor';
 
 import '../imports/api/data.js';
-import '../client/players/players.js';
+// import '../client/players/players.js';
 
 import { Teams } from '../imports/api/data.js';
 import { Players } from '../imports/api/data.js';
