@@ -19,7 +19,7 @@ var teamIdhooks = {
   }
 };
 
-AutoForm.addhooks('addPlayerForm', teamIdhooks);
+//AutoForm.addhooks('addPlayerForm', teamIdhooks);
 
 Template.addPlayer.helpers ({
   addPlayerToPlayers () {
