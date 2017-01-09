@@ -36,9 +36,13 @@ Schemas.Player = new SimpleSchema({
 
 //attach this teamId to this player for later pub, sub needs
 
-  teamId: {type: String,
-          //autoform: {type: "hidden"}
-          optional: true
+teamId: {type: String,
+            autoform: {
+              value: function() {
+               return FlowRouter.getParam('teamId');
+                    },
+                type: 'hidden',
+              }
           },
 	name: {type: String, label: "Name", max: 30},
 /*

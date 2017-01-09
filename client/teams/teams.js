@@ -42,7 +42,8 @@ Template.teamPage.helpers ({
 	},
 	//Print players on Team Page?
 	players: ()=> {
-		return Players.find({});
+		var teamId = FlowRouter.getParam('teamId');
+		return Players.find({teamId: teamId});
 	}
 		});
 
