@@ -38,7 +38,12 @@ Schemas.Player = new SimpleSchema({
 
   teamId: {type: String,
           //autoform: {type: "hidden"}
-          optional: true
+            autoform: {
+              value: function() {
+               return FlowRouter.getParam('teamId');
+                    },
+                type: 'hidden',
+              }
           },
 	name: {type: String, label: "Name", max: 30},
 /*

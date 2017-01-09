@@ -15,6 +15,20 @@ Template.addPlayer.helpers ({
   }
 });
 
+/*
+var teamIdhook = {
+  before: {
+    insert: function(doc){
+      var teamId = FlowRouter.getParam('teamId');
+      doc.teamId = teamId;
+      return doc;
+    }
+  }
+};
+
+AutoForm.addHooks('teamId',teamIdhook);
+*/
+
 /*Template.teamPage.helpers ({
   addPlayerToPlayers () {
     return Players;
