@@ -36,12 +36,7 @@ Schemas.Player = new SimpleSchema({
 
 //attach this teamId to this player for later pub, sub needs
 
-<<<<<<< HEAD
 teamId: {type: String,
-=======
-  teamId: {type: String,
-          //autoform: {type: "hidden"}
->>>>>>> 27c1f1e7a5d7600b934593807a3ae8f14e5e5983
             autoform: {
               value: function() {
                return FlowRouter.getParam('teamId');
