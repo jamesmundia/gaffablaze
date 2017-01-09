@@ -10,8 +10,6 @@ import { Schemas } from '../imports/api/data.js';
 import './teams/teams.js';
 import './players/players.js';
 
-
-
 /*
  Template.player.events({
 	'click.increment, click.decrement' : function () {
