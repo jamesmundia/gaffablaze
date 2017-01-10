@@ -111,7 +111,7 @@ Schemas.Game = new SimpleSchema({
                 type: 'hidden',
               }
           }
-          */
+        */
 });
 
 Teams.attachSchema(Schemas.Team);
