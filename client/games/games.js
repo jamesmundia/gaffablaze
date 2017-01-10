@@ -23,3 +23,9 @@ Template.teamPage.helpers({
 		return Games;
 	}
 });
+
+Template.game.helpers({
+  games: () => {
+    return Games.find({});
+  }
+});

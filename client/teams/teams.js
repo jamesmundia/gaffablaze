@@ -6,13 +6,13 @@ Meteor.subscribe('players');
 import { Teams } from '../../imports/api/data.js';
 import { Players } from '../../imports/api/data.js';
 import { Schemas } from '../../imports/api/data.js';
+import { Games } from '../../imports/api/data.js';
 
 import '../players/players.js'
 
 Meteor.subscribe('teams');
 Meteor.subscribe('games');
 
-//helper for adding teams via Schema
 Template.teamsList.helpers({
 	addTeamToTeams (){
 		return Teams;
