@@ -1,16 +1,16 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
-Meteor.subscribe('players');
-
 import { Teams } from '../../imports/api/data.js';
 import { Players } from '../../imports/api/data.js';
 import { Schemas } from '../../imports/api/data.js';
 import { Games } from '../../imports/api/data.js';
 
 import '../players/players.js'
+import '../games/games.js'
 
 Meteor.subscribe('teams');
+Meteor.subscribe('players');
 Meteor.subscribe('games');
 
 Template.teamsList.helpers({
