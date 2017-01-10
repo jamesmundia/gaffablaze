@@ -10,6 +10,7 @@ import { Schemas } from '../../imports/api/data.js';
 import '../players/players.js'
 
 Meteor.subscribe('teams');
+Meteor.subscribe('games');
 
 //helper for adding teams via Schema
 Template.teamsList.helpers({
@@ -17,16 +18,6 @@ Template.teamsList.helpers({
 		return Teams;
 	}
 });
-
-//Helper below replaces
-/*
-Template.teamsList.onCreated(function() {
-		var self = this;
-		self.autorun(function(){
-			self.subscribe('teams');
-		});
-});
-*/
 
 Template.teamsList.helpers ({
   teams: () => {
@@ -44,6 +35,9 @@ Template.teamPage.helpers ({
 	players: ()=> {
 		var teamId = FlowRouter.getParam('teamId');
 		return Players.find({teamId: teamId});
+	},
+	games: ()=> {
+		return Games.find({});
 	}
 		});
 

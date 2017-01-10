@@ -3,9 +3,12 @@
 
      <h2>{{teams.teamname}} - {{teams.clubname}} - {{teams.ageyear}}</h2>
             {{> addPlayer}}
+            {{> addGame}}
+              <h4>Players</h4>
          <ul>
              {{#each players}}
                  {{> player}}
              {{/each}}
         </ul>
+              <h4>Games</h4>
 </template>

@@ -3,6 +3,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 export const Teams = new Mongo.Collection('teams');
 export const Players = new Mongo.Collection('players');
+export const Games = new Mongo.Collection('games');
 
 const Schemas = {};
 
@@ -27,15 +28,12 @@ Schemas.Team = new SimpleSchema({
 });
 
 Schemas.Player = new SimpleSchema({
-	playerId: {type: String,
+playerId: {type: String,
 		regEx: SimpleSchema.RegEx.Id,
 		        autoValue: function() {
 				        return Random.id();
 				        },
 		             autoform: {type: "hidden"} },
-
-//attach this teamId to this player for later pub, sub needs
-
 teamId: {type: String,
             autoform: {
               value: function() {
@@ -58,5 +56,27 @@ return age year of team and attach it to all added players
 	rosternumber: {type: Number, label: "Roster Number"}
 });
 
+Schemas.Game = new SimpleSchema({
+  opponent: {type: String, label: "Opponent", max: 30},
+  date: {type: Date, label: "Date of Match"},
+  location: {type: String, label: "Match Location", allowedValues: ['Home', 'Away', 'Neutral'],
+              autoform: {afFieldInput: {firstOption: 'Home'}
+            }
+          },
+  result: {type: String,
+           label: "Result",
+           allowedValues: ['Win', 'Loss', 'Draw', 'Cancelled']},
+   teamscore: {type: Number,
+               label: "Team Score",
+              optional: true,
+              },
+    opposcore: {type: Number,
+                label: "Opponent Score",
+                optional: true,
+                }
+  //eventually attach the params of the current team from FlowRouter getParam to make subs easier
+});
+
 Teams.attachSchema(Schemas.Team);
 Players.attachSchema(Schemas.Player);
+Games.attachSchema(Schemas.Game);
