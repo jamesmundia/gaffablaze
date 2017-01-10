@@ -1,32 +1,23 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
-Meteor.subscribe('players');
-
 import { Teams } from '../../imports/api/data.js';
 import { Players } from '../../imports/api/data.js';
 import { Schemas } from '../../imports/api/data.js';
+import { Games } from '../../imports/api/data.js';
 
 import '../players/players.js'
+import '../games/games.js'
 
 Meteor.subscribe('teams');
+Meteor.subscribe('players');
+Meteor.subscribe('games');
 
-//helper for adding teams via Schema
 Template.teamsList.helpers({
 	addTeamToTeams (){
 		return Teams;
 	}
 });
-
-//Helper below replaces
-/*
-Template.teamsList.onCreated(function() {
-		var self = this;
-		self.autorun(function(){
-			self.subscribe('teams');
-		});
-});
-*/
 
 Template.teamsList.helpers ({
   teams: () => {
@@ -44,6 +35,9 @@ Template.teamPage.helpers ({
 	players: ()=> {
 		var teamId = FlowRouter.getParam('teamId');
 		return Players.find({teamId: teamId});
+	},
+	games: ()=> {
+		return Games.find({});
 	}
 		});
 
