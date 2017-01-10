@@ -57,22 +57,40 @@ return age year of team and attach it to all added players
 });
 
 Schemas.Game = new SimpleSchema({
-  opponent: {type: String, label: "Opponent", max: 30},
-  date: {type: Date, label: "Date of Match"},
-  location: {type: String, label: "Match Location", allowedValues: ['Home', 'Away', 'Neutral'],
-              autoform: {afFieldInput: {firstOption: 'Home'}
+  opponent: {
+             type: String,
+             label: "Opponent",
+             max: 30
+           },
+  date:    {
+            type: Date,
+            label: "Date of Match"
+            },
+  location: {
+             type: String,
+             label: "Match Location",
+             allowedValues: ['Home', 'Away', 'Neutral'],
+                  autoform: {
+                    afFieldInput: {
+                        firstOption: 'Home'
+                      }
             }
           },
-  result: {type: String,
-           label: "Result",
-           allowedValues: ['Win', 'Loss', 'Draw', 'Cancelled']},
-   teamscore: {type: Number,
-               label: "Team Score",
-              optional: true,
+  result: {
+            type: String,
+            label: "Result",
+            allowedValues: ['Win', 'Loss', 'Draw', 'Cancelled'],
+            optional: true
+          },
+   teamscore: {
+            type: Number,
+            label: "Team Score",
+            optional: true
               },
-    opposcore: {type: Number,
-                label: "Opponent Score",
-                optional: true,
+    opposcore: {
+            type: Number,
+            label: "Opponent Score",
+            optional: true
                 }
   //eventually attach the params of the current team from FlowRouter getParam to make subs easier
 });

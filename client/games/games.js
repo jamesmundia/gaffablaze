@@ -7,12 +7,13 @@ Meteor.subscribe('players');
 import { Teams } from '../../imports/api/data.js';
 import { Players } from '../../imports/api/data.js';
 import { Schemas } from '../../imports/api/data.js';
+import { Games } from '../../imports/api/data.js';
 
 Meteor.subscribe('teams');
 Meteor.subscribe('games');
 
 Template.addGame.helpers({
-  games: ()=> {
+  addGametoGames () {
     return Games;
   }
 });
