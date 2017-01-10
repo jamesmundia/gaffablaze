@@ -91,8 +91,26 @@ Schemas.Game = new SimpleSchema({
             type: Number,
             label: "Opponent Score",
             optional: true
-                }
-  //eventually attach the params of the current team from FlowRouter getParam to make subs easier
+          },
+    coach: {
+            type: String,
+              autoValue: function() {
+                return Meteor.userId();
+                    },
+              autoform: {
+                type: "hidden"
+              }
+            },
+            /*
+    teamId: {
+            type: String,
+              autoform: {
+                value: function() {
+                 return FlowRouter.getParam('teamId');
+                      },
+                  type: "hidden",
+                    }
+                  } */
 });
 
 Teams.attachSchema(Schemas.Team);

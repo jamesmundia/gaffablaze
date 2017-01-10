@@ -27,5 +27,17 @@ Template.teamPage.helpers({
 Template.game.helpers({
   games: () => {
     return Games.find({});
+  },
+  teams: () => {
+		// should this be teamId here?
+		var teamId = FlowRouter.getParam('teamId');
+		return Teams.findOne({teamId: teamId});
+  }
+});
+
+Template.addGame.helpers ({
+	teams: () => {
+		var teamId = FlowRouter.getParam('teamId');
+		return Teams.findOne({teamId: teamId});
   }
 });
