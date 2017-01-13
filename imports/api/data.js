@@ -108,17 +108,14 @@ Schemas.Game = new SimpleSchema({
                 type: "hidden"
               }
             },
-  /*
-  teamId: {
-          type: String,
-            autoform: {
-              value: function() {
-               return FlowRouter.getParam('teamId');
-                    },
-                type: 'hidden',
-              }
-          }
-        */
+    teamId: {type: String,
+                autoform: {
+                  value: function() {
+                   return FlowRouter.getParam('teamId');
+                        },
+                    type: 'hidden',
+                          }
+                      }
 });
 
 Teams.attachSchema(Schemas.Team);

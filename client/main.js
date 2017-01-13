@@ -12,6 +12,8 @@ import './teams/teams.js';
 import './players/players.js';
 import './games/games.js';
 
+import '../lib/routing.js';
+
 /*
  Template.player.events({
 	'click.increment, click.decrement' : function () {
