@@ -29,10 +29,13 @@ Template.teamPage.helpers ({
 			return Teams.findOne({teamId: teamId});
 	},
 		players: ()=> {
+			//only show players with this teamId, use for now instead of template level subs
 			var teamId = FlowRouter.getParam('teamId');
 			return Players.find({teamId: teamId});
 	},
 		games: ()=> {
-			return Games.find({});
+			//only show games with this teamId, use for now instead of template level subs
+			var teamId = FlowRouter.getParam('teamId');
+			return Games.find({teamId: teamId});
 	}
 		});

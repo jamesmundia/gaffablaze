@@ -1,11 +1,11 @@
 <template name="teamPage">
      <h2>{{teams.teamname}} - {{teams.clubname}} - {{teams.ageyear}}</h2>
-   {{> addPlayer}}
-   <!-- {{> addGame}} -->
+   <div>{{> addPlayer}}</div>
+    <div>{{> addGame}}</div>
 
-      <a href="/{{teams.teamId}}/addGame/">
+  <!--    <a href="/{{teams.teamId}}/addGame/">
         <h3>Add A Game</h3>
-      </a>
+      </a> -->
 
               <h4>Players</h4>
          <ul>
