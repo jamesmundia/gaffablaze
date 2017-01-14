@@ -22,11 +22,23 @@ Template.addGame.helpers({
 });
 
 Template.game.helpers({
-  games: () => {
-    return Games.find({});
+  games: ()=> {
+    var gameId = FlowRouter.getParam('gameId');
+    return Games.find({gameId: gameId});
   },
   teams: function() {
 		var teamId = FlowRouter.getParam('teamId');
 		return Teams.findOne({teamId: teamId});
   }
+});
+
+Template.singleGame.helpers({
+  teams: ()=> {
+    var teamId = FlowRouter.getParam('teamId');
+    return Teams.findOne({teamId: teamId});
+  },
+  games: ()=> {
+    var gameId = FlowRouter.getParam('gameId');
+    return Games.findOne({gameId: gameId});
+      }
 });
