@@ -15,7 +15,7 @@ Template.addGame.helpers({
   addGametoGames () {
     return Games;
   },
-  teams: () => {
+  teams: function() {
     var teamId = FlowRouter.getParam('teamId');
     return Teams.findOne({teamId: teamId});
   }
@@ -25,7 +25,7 @@ Template.game.helpers({
   games: () => {
     return Games.find({});
   },
-  teams: () => {
+  teams: function() {
 		var teamId = FlowRouter.getParam('teamId');
 		return Teams.findOne({teamId: teamId});
   }

@@ -1,4 +1,7 @@
 <template name="addGame">
+      <div>
+        <h3>Add a Game for {{teams.teamname}}</h3>
+      </div>
       {{#autoForm collection=addGametoGames id="addGameForm" type="insert"}}
       <fieldset>
           <legend>Add Game</legend>
@@ -8,6 +11,7 @@
           {{> afQuickField name='result'}}
           {{> afQuickField name='teamscore'}}
           {{> afQuickField name='opposcore'}}
+          {{> afQuickField name='teamId'}}
           <button type="submit" class="btn btn-primary">Insert</button>
       </fieldset>
       {{/autoForm}}
