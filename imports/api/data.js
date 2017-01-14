@@ -57,6 +57,13 @@ return age year of team and attach it to all added players
 });
 
 Schemas.Game = new SimpleSchema({
+  gameId: {type: String,
+		regEx: SimpleSchema.RegEx.Id,
+    autoValue: function() {
+            return Random.id();
+          },
+      autoform: {type: "hidden"}
+    },
   opponent: {
              type: String,
              label: "Opponent",
@@ -101,17 +108,14 @@ Schemas.Game = new SimpleSchema({
                 type: "hidden"
               }
             },
-  /*
-  teamId: {
-          type: String,
-            autoform: {
-              value: function() {
-               return FlowRouter.getParam('teamId');
-                    },
-                type: 'hidden',
-              }
-          }
-        */
+    teamId: {type: String,
+                autoform: {
+                  value: function() {
+                   return FlowRouter.getParam('teamId');
+                        },
+                    type: 'hidden',
+                          }
+                      }
 });
 
 Teams.attachSchema(Schemas.Team);

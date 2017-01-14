@@ -29,3 +29,5 @@ random
 kadira:flow-router
 kadira:blaze-layout
 check
+momentjs:moment
+arillo:flow-router-helpers
