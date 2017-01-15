@@ -6,9 +6,13 @@ import '../imports/startup/accounts_config.js';
 import { Teams } from '../imports/api/data.js';
 import { Players } from '../imports/api/data.js';
 import { Schemas } from '../imports/api/data.js';
+import { Games } from '../imports/api/data.js';
 
 import './teams/teams.js';
 import './players/players.js';
+import './games/games.js';
+
+import '../lib/routing.js';
 
 /*
  Template.player.events({

@@ -21,6 +21,22 @@ Template.teamPage.helpers ({
   }
 });
 
+Template.singlePlayerPage.helpers({
+  teams: ()=> {
+    var teamId = FlowRouter.getParam('teamId');
+    return Teams.findOne({teamId: teamId});
+      },
+  players: ()=> {
+    var playerId = FlowRouter.getParam('playerId');
+    return Players.findOne({playerId: playerId});
+      },
+  games: ()=> {
+    //only show games with this teamId, use for now instead of template level subs
+    var teamId = FlowRouter.getParam('teamId');
+    return Games.find({teamId: teamId});
+      }
+});
+
 /*Template.teamPage.helpers ({
   players: () => {
     return Players.find({});

@@ -8,6 +8,7 @@
     "meteor-node-stubs": "~0.2.0"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "eslint": "^3.13.1",
     "eslint-plugin-jsx-a11y": "^2.2.3"
   },
@@ -27,5 +28,8 @@
       "import/resolver": "meteor"
     },
     "rules": {}
+=======
+    "eslint": "^3.13.1"
+>>>>>>> origin/master
   }
 }
