@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Teams } from '../../imports/api/data.js';
-import { Players } from '../../imports/api/data.js';
+import { Players } from '../../imports/api/data';
 import { Schemas } from '../../imports/api/data.js';
 import { Games } from '../../imports/api/data.js';
 
@@ -21,6 +21,15 @@ Template.addGame.helpers({
   }
 });
 
+Template.updateGame.helpers({
+  updateGames: function () {
+    return Games;
+  },
+  thisGame: function () {
+    return this._id;
+  }
+});
+
 Template.game.helpers({
   games: ()=> {
     var gameId = FlowRouter.getParam('gameId');
@@ -35,10 +44,10 @@ Template.game.helpers({
 Template.singleGame.helpers({
   teams: ()=> {
     var teamId = FlowRouter.getParam('teamId');
-    return Teams.findOne({teamId: teamId});
+    return Teams.findOne({ teamId: teamId });
   },
   games: ()=> {
     var gameId = FlowRouter.getParam('gameId');
-    return Games.findOne({gameId: gameId});
+    return Games.findOne({ gameId: gameId });
       }
 });

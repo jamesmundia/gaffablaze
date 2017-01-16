@@ -115,7 +115,43 @@ Schemas.Game = new SimpleSchema({
                         },
                     type: 'hidden',
                           }
-                      }
+                      },
+  buildup: { type: Number,
+              label: "Buildup Rating",
+              min: 1,
+              max: 5,
+              optional: true
+  },
+  drbuildup: { type: Number,
+              label: "Disrupting the Buildup Rating",
+              min: 1,
+              max: 5,
+              optional: true
+  },
+  atrans: { type: Number,
+              label: "Attacking Transition Rating",
+              min: 1,
+              max: 5,
+              optional: true
+  },
+  dtrans: { type: Number,
+              label: "Defensive Transition Rating",
+              min: 1,
+              max: 5,
+              optional: true
+  },
+  finscoreopps: { type: Number,
+              label: "Finishing Scoring Opportunities Rating",
+              min: 1,
+              max: 5,
+              optional: true
+  },
+  stopscoreopps: { type: Number,
+              label: "Stopping Scoring Opportunities Rating",
+              min: 1,
+              max: 5,
+              optional: true
+  },
 });
 
 Teams.attachSchema(Schemas.Team);

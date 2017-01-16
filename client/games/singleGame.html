@@ -5,4 +5,14 @@
   <p>{{games.result}}: {{games.teamscore}} - {{games.opposcore}}</p>
     </div>
 
+    <div>
+      <h4>Game Evaluation:</h4>
+
+      <p>Buildup Rating: {{games.buildup}}
+      <br />Disrupting the Buildup Rating: {{games.drbuildup}}
+      <br/>  Attacking Transition Rating: {{games.atrans}}</p>
+    </div>
+
+{{> updateGame}}
+
 </template>

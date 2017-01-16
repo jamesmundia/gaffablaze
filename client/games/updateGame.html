@@ -1,0 +1,18 @@
+<template name="updateGame">
+      {{#autoForm collection=updateGames id="thisGame" type="update"}}
+      <fieldset>
+          <legend>Update Game</legend>
+          {{> afQuickField name='result'}}
+          {{> afQuickField name='teamscore'}}
+          {{> afQuickField name='opposcore'}}
+          {{> afQuickField name='teamId'}}
+          {{> afQuickField name='buildup'}}
+          {{> afQuickField name='drbuildup'}}
+          {{> afQuickField name='atrans'}}
+          {{> afQuickField name='dtrans'}}
+          {{> afQuickField name='finscoreopps'}}
+          {{> afQuickField name='stopscoreopps'}}
+          <button type="submit" class="btn btn-primary">Update Game</button>
+      </fieldset>
+      {{/autoForm}}
+</template>
