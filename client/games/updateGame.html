@@ -1,5 +1,5 @@
 <template name="updateGame">
-      {{#autoForm collection=updateGames id="thisGame" type="update"}}
+      {{#autoForm collection=updateGames doc=thisGame id="updateGameForm" type="update"}}
       <fieldset>
           <legend>Update Game</legend>
           {{> afQuickField name='result'}}

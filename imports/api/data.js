@@ -7,6 +7,8 @@ export const Games = new Mongo.Collection('games');
 
 const Schemas = {};
 
+SimpleSchema.debug = true;
+
 Schemas.Team = new SimpleSchema({
   /*figure out how to attach Coach User ID to all teams created by that coach:  */
   coach: {type: String,
@@ -78,9 +80,7 @@ Schemas.Game = new SimpleSchema({
              label: "Match Location",
              allowedValues: ['Home', 'Away', 'Neutral'],
                   autoform: {
-                    afFieldInput: {
-                        firstOption: 'Home'
-                      }
+                    type: 'select-radio-inline'
             }
           },
   result: {

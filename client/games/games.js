@@ -12,7 +12,7 @@ Meteor.subscribe('players');
 Meteor.subscribe('games');
 
 Template.addGame.helpers({
-  addGametoGames () {
+  addGametoGames() {
     return Games;
   },
   teams: function() {
@@ -26,7 +26,8 @@ Template.updateGame.helpers({
     return Games;
   },
   thisGame: function () {
-    return this._id;
+    var id = this._id;
+      return id;
   }
 });
 
@@ -42,7 +43,7 @@ Template.game.helpers({
 });
 
 Template.singleGame.helpers({
-  teams: ()=> {
+  teams: () => {
     var teamId = FlowRouter.getParam('teamId');
     return Teams.findOne({ teamId: teamId });
   },
