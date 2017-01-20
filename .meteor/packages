@@ -31,3 +31,4 @@ kadira:blaze-layout
 check
 momentjs:moment
 arillo:flow-router-helpers
+twbs:bootstrap

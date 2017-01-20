@@ -1,5 +1,5 @@
 <template name="updateGame">
-      {{#autoForm collection=updateGames doc=thisGame id="updateGameForm" type="update"}}
+      {{#autoForm collection=updateGames doc=thisGame id="updateGameForm" type="update" autosave=true}}
       <fieldset>
           <legend>Update Game</legend>
           {{> afQuickField name='result'}}
@@ -12,7 +12,9 @@
           {{> afQuickField name='dtrans'}}
           {{> afQuickField name='finscoreopps'}}
           {{> afQuickField name='stopscoreopps'}}
+          {{> afQuickField name='gamenotes' rows=6}}
           <button type="submit" class="btn btn-primary">Update Game</button>
       </fieldset>
       {{/autoForm}}
+
 </template>

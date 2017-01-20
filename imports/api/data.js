@@ -145,6 +145,13 @@ Schemas.Game = new SimpleSchema({
               max: 5,
               optional: true
   },
+  gamenotes: {type: String,
+              label: "Game Notes",
+              optional: true
+            },
+  playerevals: {type: [Mongo.Collection.Players],
+                label: "Players in the Game"},
+                autoform: { type: "hidden" }
 });
 
 Teams.attachSchema(Schemas.Team);
