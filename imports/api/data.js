@@ -217,7 +217,7 @@ denyUpdate: true,
               max: 5,
               optional: true
   },
-  gamenotes: {type: String,
+  gamenotes: {type: [String],
               label: "Game Notes",
               optional: true
             }
