@@ -22,4 +22,13 @@
 
 <div>{{> updateGame}}</div>
 
+<div>
+  <h4>Player Evals</h4>
+<ul>
+ {{#each players}}
+     {{> playerGameEval}}
+ {{/each}}
+</ul>
+</div>
+
 </template>
