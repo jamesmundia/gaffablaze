@@ -17,7 +17,7 @@ Template.addGame.helpers({
   },
   teams: function () {
     var teamId = FlowRouter.getParam('teamId');
-return Teams.findOne({teamId: teamId});
+    return Teams.findOne({teamId: teamId});
   }
 });
 
@@ -51,19 +51,19 @@ Template.singleGame.helpers({
     var id = FlowRouter.getParam('_id');
     return Games.findOne({ _id: id });
   },
-  players: ()=> {
+  players: () => {
     //only show players with this teamId, use for now instead of template level subs
     var teamId = FlowRouter.getParam('teamId');
-    return Players.find({teamId: teamId});
+    return Players.find({ teamId: teamId });
   }
 });
 
 Template.playerGameEval.helpers({
-  games: ()=> {
+  playerEvalSchema: function () {
+    return Games;
+  },
+  thisPlayerEvaluation: function () {
     var id = FlowRouter.getParam('_id');
     return Games.findOne({ _id: id });
-  },
-  playerEvalSchema: function () {
-    return Players;
   }
 });

@@ -32,24 +32,35 @@ figure out how to attach Coach User ID to all teams created by that coach:  */
         type: 'hidden'
        }
      },
-	teamname: {type: String, label: "Team Name", max: 30},
-	clubname: {type: String, label: "Club Name", max: 30},
-	ageyear: {type: Number, label: "Team Birth Year"},
-	players: {type: Mongo.Collection.Players, optional: true}
+  teamname: { type: String, label: "Team Name", max: 30 },
+  clubname: { type: String, label: "Club Name", max: 30 },
+  ageyear: { type: Number, label: "Team Birth Year" },
+  players: { type: Mongo.Collection.Players, optional: true }
 });
 
-/*
-Schemas.IndyEval = new SimpleSchema({
-  gameId: { type: String,
-            denyUpdate: true,
-            label: "Game ID",
-            autoValue: {
-                value: function () {
-                  var id = FlowRouter.getParam('_id');
-                  return Games.findOne({ _id: id });
-                }
-            }
+Schemas.PlayerEval = new SimpleSchema({
+  /*
+  evaluatedPlayer: {
+    type: String,
+    label: "Evaluated Player ID",
+    autoform: {
+      value: function () {
+        return this.playerId;
+      },
+    },
+    denyUpdate: true,
+  },
+  evaluatedGame: { type: String,
+    label: "Evaluated Game ID",
+    autoform: {
+      value: function () {
+        var id = FlowRouter.getParam('_id');
+        return Games.findOne({ _id: id });
+      },
+            },
+    denyUpdate: true,
           },
+          */
   indybuildup: {type: Number,
                 label: "Build Up Rating",
                 optional: true,
@@ -93,28 +104,33 @@ indygamenotes: { type: String,
               max: 500
                 }
 });
-*/
 
 Schemas.Player = new SimpleSchema({
-  playerId: {type: String,
+  playerId: { type: String,
     regEx: SimpleSchema.RegEx.Id,
-		        autoValue: function() {
-				        return Random.id();
-				        },
-		             autoform: { type: "hidden"
-             },
-             denyUpdate: true,
+      autoValue: function () {
+        return Random.id();
+        },
+    autoform: {
+      type: 'hidden'
+    },
+    denyUpdate: true,
 },
-teamId: { type: String,
-            autoform: {
-              value: function() {
-               return FlowRouter.getParam('teamId');
-                    },
-                type: 'hidden'
-            },
-  denyUpdate: true,
+  teamId: {
+    type: String,
+    autoform: {
+      value: function() {
+        return FlowRouter.getParam('teamId');
+      },
+      type: 'hidden'
+    },
+    denyUpdate: true,
           },
-	name: {type: String, label: "Name", max: 30},
+  name: {
+    type: String,
+    label: 'Name',
+    max: 30
+  },
 /*
 return age year of team and attach it to all added players
 	age: {type: Number,
@@ -124,8 +140,8 @@ return age year of team and attach it to all added players
         autoform: {type: "hidden"}
       },
 */
-	position: { type: String, label: 'Position', max: 13 },
-	rosternumber: { type: Number, label: 'Roster Number' },
+  position: { type: String, label: 'Position', max: 13 },
+  rosternumber: { type: Number, label: 'Roster Number' },
   //indyevals: { type: ['IndyEval'] }
 });
 
@@ -217,13 +233,19 @@ denyUpdate: true,
               max: 5,
               optional: true
   },
+  playerevals: {
+    type: ['PlayerEval'],
+    optional: true
+  },
+  /*
   gamenotes: {type: [String],
               label: "Game Notes",
               optional: true
             }
+*/
 });
 
 Teams.attachSchema(Schemas.Team);
 Players.attachSchema(Schemas.Player);
-//Players.attachSchema(Schemas.IndyEval);
+Games.attachSchema(Schemas.PlayerEval);
 Games.attachSchema(Schemas.Game);

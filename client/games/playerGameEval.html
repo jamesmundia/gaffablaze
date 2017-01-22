@@ -3,10 +3,9 @@
       <li>{{name}} - {{position}} - #{{rosternumber}}</li>
 </a>
 
-  <!-- {{#autoForm collection=playerEvalSchema doc=this id="playerGameEvalForm" type="update" autosave=true}}
+ {{#autoForm collection=playerEvalSchema doc=thisPlayerEvaluation id="playerGameEvalForm" type="update" autosave=true}}
   <fieldset>
       <legend>Player Eval</legend>
-      {{> afQuickField name='gameId'}}
       {{> afQuickField name='indybuildup'}}
       {{> afQuickField name='indydrbuildup'}}
       {{> afQuickField name='indyatrans'}}
@@ -16,6 +15,6 @@
       {{> afQuickField name='indygamenotes' rows=3}}
       <button type="submit" class="btn btn-primary">Submit Eval</button>
   </fieldset>
-  {{/autoForm}} -->
+  {{/autoForm}}
 
 </template>
