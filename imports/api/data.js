@@ -38,10 +38,11 @@ figure out how to attach Coach User ID to all teams created by that coach:  */
   players: { type: Mongo.Collection.Players, optional: true }
 });
 
+/*
 Schemas.PlayerEval = new SimpleSchema({
-  /*
+
   evaluatedPlayer: {
-    type: String,
+    type: [String],
     label: "Evaluated Player ID",
     autoform: {
       value: function () {
@@ -50,7 +51,7 @@ Schemas.PlayerEval = new SimpleSchema({
     },
     denyUpdate: true,
   },
-  evaluatedGame: { type: String,
+  evaluatedGame: { type: [String],
     label: "Evaluated Game ID",
     autoform: {
       value: function () {
@@ -60,7 +61,6 @@ Schemas.PlayerEval = new SimpleSchema({
             },
     denyUpdate: true,
           },
-          */
   indybuildup: {type: Number,
                 label: "Build Up Rating",
                 optional: true,
@@ -97,13 +97,14 @@ indystopscoreoppos: {type: Number,
               min: 1,
               max: 5
             },
-indygamenotes: { type: String,
+indygamenotes: { type: [String],
               optional: true,
               label: "Individual Game Notes",
               min: 10,
               max: 500
                 }
 });
+*/
 
 Schemas.Player = new SimpleSchema({
   playerId: { type: String,
@@ -142,7 +143,7 @@ return age year of team and attach it to all added players
 */
   position: { type: String, label: 'Position', max: 13 },
   rosternumber: { type: Number, label: 'Roster Number' },
-  //indyevals: { type: ['IndyEval'] }
+  //playerevals: { type: ['PlayerEval'], optional: true },
 });
 
 Schemas.Game = new SimpleSchema({
@@ -233,19 +234,13 @@ denyUpdate: true,
               max: 5,
               optional: true
   },
-  playerevals: {
-    type: ['PlayerEval'],
-    optional: true
-  },
-  /*
-  gamenotes: {type: [String],
+  gamenotes: {type: String,
               label: "Game Notes",
               optional: true
             }
-*/
 });
 
 Teams.attachSchema(Schemas.Team);
 Players.attachSchema(Schemas.Player);
-Games.attachSchema(Schemas.PlayerEval);
+Players.attachSchema(Schemas.PlayerEval);
 Games.attachSchema(Schemas.Game);

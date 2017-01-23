@@ -16,14 +16,13 @@
     <div>
       <h4>Game Notes</h4>
       <p>
-        {{#each games.gamenotes}}
-            {{> gameNote}}
-        {{/each}}
+        {{games.gamenotes}}
       </p>
     </div>
 
 <div>{{> updateGame}}</div>
 
+<!--
 <div>
   <h4>Player Evals</h4>
 <ul>
@@ -32,5 +31,6 @@
  {{/each}}
 </ul>
 </div>
+-->
 
 </template>
