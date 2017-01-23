@@ -1,6 +1,9 @@
 <template name="mainLayout">
   <header>
-    <a href="/">Home</a>  <a href="/teams">Teams</a>
+    <a href="/">Home</a>
+          {{#if currentUser}}
+               <a href="/teams">Teams</a>
+           {{/if}}
       {{> loginButtons}}
   </header>
 

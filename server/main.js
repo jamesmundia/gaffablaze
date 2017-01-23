@@ -1,4 +1,4 @@
-//SERVER CODE
+// SERVER CODE
 import { Meteor } from 'meteor/meteor';
 
 import '../imports/api/data.js';
@@ -8,11 +8,11 @@ import { Players } from '../imports/api/data.js';
 import { Schemas } from '../imports/api/data.js';
 import { Games } from '../imports/api/data.js';
 
-Meteor.publish('teams', function (){
-    return Teams.find();
+Meteor.publish('teams', function () {
+  return Teams.find();
 });
 
-//single Team subscription for performance
+// single Team subscription for performance
 /*
 Meteor.publish('singleTeam', function(teamId){
   check(teamId, String);
@@ -20,11 +20,11 @@ Meteor.publish('singleTeam', function(teamId){
 });
 */
 
-Meteor.publish('players', function(){
+Meteor.publish('players', function () {
   return Players.find();
 });
 
-Meteor.publish('games', function(){
+Meteor.publish('games', function () {
   return Games.find();
 });
 

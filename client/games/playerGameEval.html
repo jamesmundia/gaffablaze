@@ -1,0 +1,20 @@
+<template name="playerGameEval">
+  <a href="/teams/{{teamId}}/players/{{playerId}}">
+      <li>{{name}} - {{position}} - #{{rosternumber}}</li>
+</a>
+
+ {{#autoForm collection=playerEvalSchema doc=thisPlayerEvaluation id="playerGameEvalForm" type="update" autosave=true}}
+  <fieldset>
+      <legend>Player Eval</legend>
+      <!-- {{> afQuickField name='indybuildup'}}
+      {{> afQuickField name='indydrbuildup'}}
+      {{> afQuickField name='indyatrans'}}
+      {{> afQuickField name='indydtrans'}}
+      {{> afQuickField name='indyfinscoreoppos'}}
+      {{> afQuickField name='indystopscoreoppos'}} -->
+      {{> afQuickField name='indygamenotes' rows=3}}
+      <button type="submit" class="btn btn-primary">Submit Eval</button>
+  </fieldset>
+  {{/autoForm}}
+
+</template>
