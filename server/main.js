@@ -9,7 +9,12 @@ import { Schemas } from '../imports/api/data.js';
 import { Games } from '../imports/api/data.js';
 
 Meteor.publish('teams', function () {
-  return Teams.find();
+  var userId = this.userId;
+  currentUserTeams = Teams.find({ "coach": userId });
+    if (currentUserTeams) {
+      return currentUserTeams;
+    }
+  return this.ready();
 });
 
 // single Team subscription for performance

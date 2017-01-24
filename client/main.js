@@ -33,7 +33,7 @@ AutoForm.addHooks('submitGame', {
 AutoForm.addHooks('submitPlayer', {
   onSuccess: function () {
   //  console.log("Player Added, Showing Success Notification");
-    Bert.alert('Player Sucessfully Added!', 'success', 'fixed-top');
+  //  Bert.alert('Player Successfully Added!', 'success', 'fixed-top');
   }
 });
 
