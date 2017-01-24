@@ -33,3 +33,7 @@ momentjs:moment
 arillo:flow-router-helpers
 twbs:bootstrap
 aldeed:schema-deny
+tsega:bootstrap3-datetimepicker
+aldeed:autoform-bs-datetimepicker
+mrt:moment-timezone
+themeteorchef:bert

@@ -14,11 +14,13 @@
     </div>
 
     <div>
-      <h4>Game Notes</h4>
-      <p>
-        {{games.gamenotes}}
-      </p>
-    </div>
+     <h4>Game Notes</h4>
+         <ul>
+       {{#each games.gamenotes}}
+           {{this}}<br>
+         {{/each}}
+         </ul>
+   </div>
 
 <div>{{> updateGame}}</div>
 

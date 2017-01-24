@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { Bert } from 'meteor/themeteorchef:bert'
 
 import '../imports/startup/accounts_config.js';
 
@@ -13,6 +14,34 @@ import './players/players.js';
 import './games/games.js';
 
 import '../lib/routing.js';
+
+Template.mainLayout.helpers({
+  authInProcess: function () {
+  return Meteor.loggingIn();
+},
+canShow: function() {
+  return !!Meteor.user();
+}
+});
+
+AutoForm.addHooks('submitGame', {
+  onSuccess: function () {
+    console.log("Game Added to the Bwreent");
+  }
+});
+
+AutoForm.addHooks('submitPlayer', {
+  onSuccess: function () {
+  //  console.log("Player Added, Showing Success Notification");
+    Bert.alert('Player Sucessfully Added!', 'success', 'fixed-top');
+  }
+});
+
+AutoForm.addHooks('submitTeam', {
+  onSuccess: function () {
+    console.log("Team Added to the Bwreent");
+  }
+});
 
 /*
  Template.player.events({

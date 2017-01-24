@@ -8,7 +8,16 @@
   </header>
 
   <main>
+    {{#if authInProcess}}
+        <p>loading ...</p>
+    {{else}}
+  {{#if canShow}}
      {{>Template.dynamic template=content}}
+      {{else}}
+      <p>You are not authorized to view this page.</p>
+      <p>Please login to view this page</p>
+    {{/if}}
+  {{/if}}
   </main>
   <footer> (c) Pamoja Technologies</footer>
 </template>

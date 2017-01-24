@@ -2,7 +2,7 @@
       {{#autoForm collection=updateGames doc=thisGame id="updateGameForm" type="update" autosave=true}}
       <fieldset>
           <legend>Update Game</legend>
-          {{> afQuickField name='result'}}
+          {{> afQuickField name='result' options="allowed"}}
           {{> afQuickField name='teamscore'}}
           {{> afQuickField name='opposcore'}}
           {{> afQuickField name='buildup'}}

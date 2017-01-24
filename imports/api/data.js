@@ -154,7 +154,14 @@ Schemas.Game = new SimpleSchema({
            },
   date:    {
             type: Date,
-            label: "Date of Match"
+            label: "Date of Match",
+            optional: true,
+            autoform: {
+              afFieldInput: {
+                type: 'bootstrap-datetimepicker',
+                timezoneId: "America/New_York"
+              }
+            }
             },
   location: {
              type: String,
@@ -168,6 +175,7 @@ Schemas.Game = new SimpleSchema({
             type: String,
             label: "Result",
             allowedValues: ['Win', 'Loss', 'Draw', 'Cancelled'],
+            autoform: { type: 'select' },
             optional: true
           },
    teamscore: {
@@ -234,7 +242,7 @@ denyUpdate: true,
               max: 5,
               optional: true
   },
-  gamenotes: {type: String,
+  gamenotes: {type: [String],
               label: "Game Notes",
               optional: true
             }

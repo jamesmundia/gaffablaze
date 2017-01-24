@@ -1,11 +1,11 @@
 <template name="addGame">
-      {{#autoForm collection=addGametoGames id="addGameForm" type="insert"}}
+      {{#autoForm collection=addGametoGames id="submitGame" type="insert" meteormethod="submitGame"}}
       <fieldset>
           <legend>Add Game</legend>
           {{> afQuickField name='opponent'}}
           {{> afQuickField name='date'}}
           {{> afQuickField name='location' options="allowed"}}
-          {{> afQuickField name='result'}}
+          {{> afQuickField name='result' options="allowed"}}
           {{> afQuickField name='teamscore'}}
           {{> afQuickField name='opposcore'}}
           {{> afQuickField name='teamId'}}

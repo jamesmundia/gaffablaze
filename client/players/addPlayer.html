@@ -1,5 +1,5 @@
 <template name="addPlayer">
-  {{#autoForm collection=addPlayerToPlayers id="addPlayerForm" type="insert"}}
+  {{#autoForm collection=addPlayerToPlayers id="submitPlayer" type="insert" meteormethod="submitPlayer"}}
   <fieldset>
       <legend>Add Player</legend>
       {{> afQuickField name='name'}}
