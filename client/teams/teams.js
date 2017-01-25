@@ -5,41 +5,37 @@ import { Players } from '../../imports/api/data.js';
 import { Schemas } from '../../imports/api/data.js';
 import { Games } from '../../imports/api/data.js';
 
-import '../players/players.js'
-import '../games/games.js'
-import '../../lib/routing.js'
+import './teampage';
+import '../players/players'
+import '../games/games'
+import '../../lib/routing'
 
-Meteor.subscribe('teams');
 Meteor.subscribe('players');
 Meteor.subscribe('games');
 
-Template.teamPage.onCreated( function() {
-	this.subscribe('singleTeam');
+// Template Level Subscription for Teams
+Template.teamsList.onCreated(function () {
+  const self = this;
+  self.autorun(function () {
+    self.subscribe('teams');
+  });
+  this.addTeamMode = new ReactiveVar(false);
+});
+
+Template.teamsList.events({
+  'click .add-team': function (event, template) {
+    template.addTeamMode.set(!template.addTeamMode.get())
+  }
 });
 
 Template.teamsList.helpers({
-	addTeamToTeams (){
-		return Teams;
-	},
+  addTeamToTeams () {
+    return Teams;
+  },
   teams: () => {
     return Teams.find({});
-	}
+  },
+  addTeamMode: function () {
+    return Template.instance().addTeamMode.get();
+  }
 });
-
-//This finds the teamId from the route and loads that data from the page
-Template.teamPage.helpers ({
-		teams: ()=> {
-			var teamId = FlowRouter.getParam('teamId');
-			return Teams.findOne({teamId: teamId});
-	},
-		players: ()=> {
-			//only show players with this teamId, use for now instead of template level subs
-			var teamId = FlowRouter.getParam('teamId');
-			return Players.find({teamId: teamId});
-	},
-		games: ()=> {
-			//only show games with this teamId, use for now instead of template level subs
-			var teamId = FlowRouter.getParam('teamId');
-			return Games.find({teamId: teamId});
-	}
-		});

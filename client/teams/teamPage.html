@@ -1,23 +1,25 @@
 <template name="teamPage">
-     <h2>{{teams.teamname}} - {{teams.clubname}} - {{teams.ageyear}}</h2>
-   <div>{{> addPlayer}}</div>
-    <div>{{> addGame}}</div>
-
-  <!--    <a href="/{{teams.teamId}}/addGame/">
-        <h3>Add A Game</h3>
-      </a> -->
-
-              <h4>Players</h4>
-         <ul>
-             {{#each players}}
-                 {{> player}}
-             {{/each}}
-        </ul>
-              <h4>Games</h4>
-
-        <ul>
-              {{#each games}}
-                {{> game}}
+  <h2>{{teams.teamname}} - {{teams.clubname}} - {{teams.ageyear}}</h2>
+    <button class="add-player"><i class="fa fa-plus"></i>Add Player</button>
+    <button class="add-game"><i class="fa fa-plus"></i>Add Game</button>
+      {{#if addPlayerMode}}
+        <p>Click Add Player Button to Cancel</p>
+          <div>{{> addPlayer}}</div>
+      {{/if}}
+      {{#if addGameMode}}
+        <p>Click Add Player Button to Cancel</p>
+        <div>{{> addGame}}</div>
+      {{/if}}
+          <h4>Players</h4>
+            <ul>
+              {{#each players}}
+                {{> player}}
               {{/each}}
-        </ul>
+            </ul>
+                <h4>Games</h4>
+                  <ul>
+                    {{#each games}}
+                      {{> game}}
+                    {{/each}}
+                  </ul>
 </template>

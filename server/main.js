@@ -7,6 +7,7 @@ import { Teams } from '../imports/api/data.js';
 import { Players } from '../imports/api/data.js';
 import { Schemas } from '../imports/api/data.js';
 import { Games } from '../imports/api/data.js';
+import { check } from 'meteor/check';
 
 Meteor.publish('teams', function () {
   var userId = this.userId;
@@ -17,13 +18,23 @@ Meteor.publish('teams', function () {
   return this.ready();
 });
 
+Meteor.publish('singleTeam', function(teamId) {
+  check(teamId, String);
+  return Teams.find({ "teamId": teamId });
+
+});
+
 Meteor.publish('players', function () {
   return Players.find();
 });
 
 Meteor.publish('games', function () {
-  return Games.find();
-});
+  var userId = this.userId;
+  currentUserGames = Games.find({ "coach": userId });
+    if (currentUserGames) {
+      return currentUserGames;
+    }
+  return this.ready();});
 
 Meteor.startup(() => {
 
