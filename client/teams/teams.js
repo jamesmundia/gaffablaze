@@ -13,6 +13,10 @@ Meteor.subscribe('teams');
 Meteor.subscribe('players');
 Meteor.subscribe('games');
 
+Template.teamPage.onCreated( function() {
+	this.subscribe('singleTeam');
+});
+
 Template.teamsList.helpers({
 	addTeamToTeams (){
 		return Teams;
