@@ -8,6 +8,7 @@ Meteor.methods({
     Games.insert(addGame);
   },
   'submitPlayer': function (addPlayer) {
+    console.log('Player added');
     Players.insert(addPlayer);
   },
   'submitTeam': function (addTeam) {
