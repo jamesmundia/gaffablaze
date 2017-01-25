@@ -38,22 +38,6 @@ Template.game.helpers({
   }
 });
 
-Template.singleGame.helpers({
-  teams: () => {
-    var teamId = FlowRouter.getParam('teamId');
-    return Teams.findOne({ teamId: teamId });
-  },
-  games: ()=> {
-    var id = FlowRouter.getParam('_id');
-    return Games.findOne({ _id: id });
-  },
-  players: () => {
-    //only show players with this teamId, use for now instead of template level subs
-    var teamId = FlowRouter.getParam('teamId');
-    return Players.find({ teamId: teamId });
-  }
-});
-
 Template.playerGameEval.helpers({
   playerEvalSchema: function () {
     return Games;

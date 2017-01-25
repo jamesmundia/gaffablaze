@@ -21,17 +21,16 @@ Meteor.publish('teams', function () {
 Meteor.publish('singleTeam', function(teamId) {
   check(teamId, String);
 
-  roster = [
+  teamRoster = [
    Teams.find({ teamId: teamId }),
    Players.find({ teamId: teamId }),
 ];
 
-if (roster) {
-  return roster;
+  if (teamRoster) {
+    return teamRoster;
 }
 return this.ready();
 });
-
 
 Meteor.publish('games', function () {
   var userId = this.userId;
@@ -39,7 +38,29 @@ Meteor.publish('games', function () {
     if (currentUserGames) {
       return currentUserGames;
     }
-  return this.ready();});
+  return this.ready();
+});
+
+Meteor.publish('singleGame', function(_id) {
+  check(_id, String);
+
+  oneGame = [
+   Games.find({ _id: id }),
+];
+
+  if (oneGame) {
+    return oneGame;
+}
+return this.ready();
+});
+
+Meteor.publish('gameList', function(teamId) {
+  currentTeamSchedule = Games.find({ teamId: teamId });
+  if (currentTeamSchedule) {
+    return currentTeamSchedule;
+  }
+  return this.ready();
+})
 
 Meteor.startup(() => {
 

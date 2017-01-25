@@ -9,9 +9,10 @@ import { Players } from '../imports/api/data.js';
 import { Schemas } from '../imports/api/data.js';
 import { Games } from '../imports/api/data.js';
 
-import './teams/teams.js';
-import './players/players.js';
-import './games/games.js';
+import './teams/teams';
+import './players/players';
+import './games/games';
+import './games/singleGame';
 
 import '../lib/routing.js';
 
