@@ -7,8 +7,6 @@ import { Schemas } from '../../imports/api/data.js';
 
 import '../teams/teams.js'
 
-Meteor.subscribe('players');
-
 Template.addPlayer.helpers ({
   addPlayerToPlayers () {
     return Players;

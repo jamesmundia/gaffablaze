@@ -10,9 +10,6 @@ import '../players/players'
 import '../games/games'
 import '../../lib/routing'
 
-Meteor.subscribe('players');
-Meteor.subscribe('games');
-
 // Template Level Subscription for Teams
 Template.teamsList.onCreated(function () {
   const self = this;

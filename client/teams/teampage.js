@@ -9,14 +9,15 @@ import '../players/players.js';
 import '../games/games.js';
 import '../../lib/routing.js';
 
-Meteor.subscribe('players');
-Meteor.subscribe('games');
+//Meteor.subscribe('players');
+//Meteor.subscribe('games');
 
 Template.teamPage.onCreated(function () {
   var self = this;
 	self.autorun(function () {
 		var teamId = FlowRouter.getParam('teamId');
 		self.subscribe('singleTeam', teamId);
+    self.subscribe('playersOnThisTeam', teamId);
 	})
   this.addPlayerMode = new ReactiveVar(false);
   this.addGameMode = new ReactiveVar(false);

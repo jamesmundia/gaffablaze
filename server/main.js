@@ -20,13 +20,18 @@ Meteor.publish('teams', function () {
 
 Meteor.publish('singleTeam', function(teamId) {
   check(teamId, String);
-  return Teams.find({ "teamId": teamId });
 
+  roster = [
+   Teams.find({ teamId: teamId }),
+   Players.find({ teamId: teamId }),
+];
+
+if (roster) {
+  return roster;
+}
+return this.ready();
 });
 
-Meteor.publish('players', function () {
-  return Players.find();
-});
 
 Meteor.publish('games', function () {
   var userId = this.userId;

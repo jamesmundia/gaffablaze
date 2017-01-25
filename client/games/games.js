@@ -7,9 +7,6 @@ import { Games } from '../../imports/api/data.js';
 
 import '../teams/teams.js'
 
-//Meteor.subscribe('players');
-//Meteor.subscribe('games');
-
 Template.addGame.helpers({
   addGametoGames() {
     return Games;
