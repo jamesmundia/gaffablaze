@@ -9,12 +9,15 @@ import '../players/players.js'
 import '../games/games.js'
 import '../../lib/routing.js'
 
-Meteor.subscribe('teams');
 Meteor.subscribe('players');
 Meteor.subscribe('games');
 
-Template.teamPage.onCreated( function() {
-	this.subscribe('singleTeam');
+// Template Level Subscription for Teams
+Template.teamsList.onCreated(function () {
+  const self = this;
+  self.autorun(function () {
+    self.subscribe('teams');
+  });
 });
 
 Template.teamsList.helpers({
