@@ -11,15 +11,23 @@
         <div>{{> addGame}}</div>
       {{/if}}
           <h4>Players</h4>
+              <div>
             <ul>
+              {{#transition in="slideInLeft" out="slideOutRight"}}
               {{#each players}}
-                {{> player}}
+              <li class="animated out">  {{> player}}</li>
               {{/each}}
+                {{/transition}}
             </ul>
+
+                </div>
+
                 <h4>Games</h4>
                   <ul>
-                    {{#each games}}
-                      {{> game}}
+                {{#transition in="slideInRight" out="slideOutLeft"}}
+                 {{#each games}}
+                <li class="animated out">   {{> game}} </li>
                     {{/each}}
+                {{/transition}}
                   </ul>
 </template>
