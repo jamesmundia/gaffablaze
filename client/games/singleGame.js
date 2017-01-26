@@ -10,9 +10,10 @@ import '../teams/teams.js'
 Template.singleGame.onCreated(function () {
     const self = this;
     self.autorun(function () {
-      var id = FlowRouter.getParam('id')
-      var teamId = FlowRouter.getParam('teamId')
-      self.subscribe('singleGame');
+      var id = FlowRouter.getParam('_id');
+      var teamId = FlowRouter.getParam('teamId');
+      self.subscribe('singleGame', id);
+      self.subscribe('singleTeam', teamId);
     });
 });
 

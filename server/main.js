@@ -32,13 +32,11 @@ Meteor.publish('singleTeam', function(teamId) {
 return this.ready();
 });
 
-Meteor.publish('singleGame', function(id, teamId) {
-  //check(id, String);
+Meteor.publish('singleGame', function(id) {
+  check(id, String);
 
-    thisGame = [
-    Games.find({ id: id }),
-    Teams.find({ teamId: teamId })
-    ]
+    thisGame = Games.find({ _id: id });
+
     if (thisGame) {
       return thisGame;
     }
