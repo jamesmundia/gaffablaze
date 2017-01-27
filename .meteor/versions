@@ -87,6 +87,7 @@ mrt:moment@2.8.1
 mrt:moment-timezone@0.2.1
 msavin:jetsetter@1.5.2
 msavin:mongol@1.6.2
+muqube:autoform-nouislider@0.3.0
 npm-bcrypt@0.8.6_3
 npm-mongo@1.5.48
 observe-sequence@1.0.12

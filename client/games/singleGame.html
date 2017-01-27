@@ -1,7 +1,7 @@
 <template name="singleGame">
   <h2>{{teams.teamname}} - {{teams.clubname}} - {{teams.ageyear}}</h2>
     <div>
-  <h3>{{games.opponent}} - {{games.date}} - {{games.location}}</h3>
+  <h3>{{games.opponent}} - {{prettyDate games.date}} - {{games.location}}</h3>
   <p>{{games.result}}: {{games.teamscore}} - {{games.opposcore}}</p>
     </div>
 

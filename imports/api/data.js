@@ -34,7 +34,9 @@ figure out how to attach Coach User ID to all teams created by that coach:  */
      },
   teamname: { type: String, label: "Team Name", max: 30 },
   clubname: { type: String, label: "Club Name", max: 30 },
-  ageyear: { type: Number, label: "Team Birth Year" },
+  ageyear: { type: Number, label: "Team Birth Year",
+     autoform: {type: 'select'}
+},
   players: { type: Mongo.Collection.Players, optional: true }
 });
 
@@ -210,7 +212,7 @@ denyUpdate: true,
               label: "Buildup Rating",
               min: 1,
               max: 5,
-              optional: true
+              optional: true,
   },
   drbuildup: { type: Number,
               label: "Disrupting the Buildup Rating",

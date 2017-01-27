@@ -16,6 +16,12 @@ import './games/singleGame';
 
 import '../lib/routing.js';
 
+Template.registerHelper('prettyDate', function (date) {
+  if (date) {
+    return moment.utc(date).format('LLLL');
+  }
+});
+
 Template.mainLayout.helpers({
   authInProcess: function () {
   return Meteor.loggingIn();
