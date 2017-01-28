@@ -37,7 +37,6 @@ figure out how to attach Coach User ID to all teams created by that coach:  */
   ageyear: { type: Number, label: "Team Birth Year",
      autoform: {type: 'select'}
 },
-  players: { type: Mongo.Collection.Players, optional: true }
 });
 
 /*
@@ -247,7 +246,7 @@ denyUpdate: true,
   gamenotes: {type: [String],
               label: "Game Notes",
               optional: true
-            }
+  },
 });
 
 Teams.attachSchema(Schemas.Team);

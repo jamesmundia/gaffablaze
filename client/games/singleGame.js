@@ -15,6 +15,14 @@ Template.singleGame.onCreated(function () {
       self.subscribe('singleGame', id);
       self.subscribe('singleTeam', teamId);
     });
+    this.updateGameMode = new ReactiveVar(false);
+
+});
+
+Template.singleGame.events({
+  'click .update-game': function (event, template) {
+    template.updateGameMode.set(!template.updateGameMode.get())
+  },
 });
 
 Template.singleGame.helpers({
@@ -30,5 +38,8 @@ Template.singleGame.helpers({
     //only show players with this teamId, use for now instead of template level subs
     var teamId = FlowRouter.getParam('teamId');
     return Players.find({ teamId: teamId });
-  }
+  },
+  updateGameMode: function () {
+    return Template.instance().updateGameMode.get();
+  },
 });

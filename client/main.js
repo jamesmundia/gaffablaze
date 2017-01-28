@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-import { Bert } from 'meteor/themeteorchef:bert'
+import { Bert } from 'meteor/themeteorchef:bert';
+import { moment } from 'meteor/momentjs:moment'
 
 import '../imports/startup/accounts_config.js';
 
@@ -24,7 +25,7 @@ Template.registerHelper('prettyDate', function (date) {
 
 Template.mainLayout.helpers({
   authInProcess: function () {
-  return Meteor.loggingIn();
+    return Meteor.loggingIn();
 },
 canShow: function () {
   return !!Meteor.user();
