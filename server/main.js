@@ -60,6 +60,21 @@ Meteor.publish('gameList', function(teamId) {
   return this.ready();
 })
 
+Meteor.publish('singlePlayer', function(playerId, teamId) {
+  check(playerId, String);
+  check(teamId, String);
+
+  onePlayer = [
+    Players.find({ playerId: playerId }),
+    Teams.find ({ teamId: teamId })
+  ];
+
+  if (onePlayer) {
+    return onePlayer;
+  }
+  return this.ready();
+})
+
 Meteor.startup(() => {
 
 });

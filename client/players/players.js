@@ -7,6 +7,15 @@ import { Schemas } from '../../imports/api/data.js';
 
 import '../teams/teams.js'
 
+Template.singlePlayerPage.onCreated(function () {
+  var self = this;
+	self.autorun(function () {
+		var playerId = FlowRouter.getParam('playerId');
+    var teamId = FlowRouter.getParam('teamId');
+		self.subscribe('singlePlayer', playerId, teamId);
+  })
+});
+
 Template.addPlayer.helpers ({
   addPlayerToPlayers () {
     return Players;
