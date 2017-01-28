@@ -1,10 +1,31 @@
 <template name="mainLayout">
   <header>
-    <a href="/">Home</a>
+    <nav class="navbar navbar-default">
+
+      <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Gaffa</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav">
+       <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+       <li><a href="/">Home</a></li>
           {{#if currentUser}}
-               <a href="/teams">Teams</a>
+       <li><a href="/teams">Teams</a></li>
            {{/if}}
-      {{> loginButtons}}
+       <li class="account-spacing">{{> loginButtons}}</li>
+    </ul>
+    </div>
+  </div>
+    </nav>
   </header>
 
   <main>
@@ -12,12 +33,15 @@
         <p>loading ...</p>
     {{else}}
   {{#if canShow}}
+
      {{>Template.dynamic template=content}}
       {{else}}
       <p>You are not authorized to view this page.</p>
       <p>Please login to view this page</p>
     {{/if}}
   {{/if}}
+  <br/>
+  <footer> (c) Gaffa 2017</footer>
   </main>
-  <footer> (c) Pamoja Technologies</footer>
+
 </template>

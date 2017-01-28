@@ -1,1 +1,24 @@
 /* CSS declarations go here */
+
+.account-spacing {
+  padding-top: 14.7px;
+  padding-left: 7px
+
+}
+
+.spacing-test {
+  padding: 25px;
+}
+
+.main-area {
+  margin: 25px;
+}
+
+/*
+.panel panel-default {
+  padding: 25px;
+}
+*/
+.ugly-button {
+  padding-left: 20px;
+}

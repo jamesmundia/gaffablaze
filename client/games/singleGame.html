@@ -1,30 +1,45 @@
 <template name="singleGame">
-  <h2>{{teams.teamname}} - {{teams.clubname}} - {{teams.ageyear}}</h2>
-    <div>
-  <h3>{{games.opponent}} - {{prettyDate games.date}} - {{games.location}}</h3>
-  <p>{{games.result}}: {{games.teamscore}} - {{games.opposcore}}</p>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+    <h2>{{teams.teamname}} - {{teams.clubname}} - {{teams.ageyear}}</h2>
+  </div>
+  <div class="panel-body">
+     <h3 class="panel-title">Match vs. {{games.opponent}} - {{prettyDate games.date}} - {{games.location}}</h3>
+       <h4>{{games.result}}: {{games.teamscore}} - {{games.opposcore}}</h4>
     </div>
+  </div>
 
-    <div>
-      <h4>Game Evaluation:</h4>
-
-      <p>Buildup Rating: {{games.buildup}}
-      <br />Disrupting the Buildup Rating: {{games.drbuildup}}
-      <br/>  Attacking Transition Rating: {{games.atrans}}</p>
-    </div>
-
-    <div>
+  <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>Game Evaluation</h4>
+      <h5>Buildup Rating: {{games.buildup}}</h5>
+      <h5>Disrupting the Buildup Rating: {{games.drbuildup}}</h5>
+       <h5>Attacking Transition Rating: {{games.atrans}}</h5>
+        </div>
+        </div>
+<div class="panel panel-default">
+  <div class="panel-body">
      <h4>Game Notes</h4>
          <ul>
        {{#each games.gamenotes}}
            {{this}}<br>
          {{/each}}
          </ul>
-   </div>
+       </div>
+ </div>
+
+<div class="ugly-button">
    <button class="update-game"><i class="fa fa-plus"></i>Evaluate Game</button>
+ </div>
    {{#if updateGameMode}}
-   <p>Click Evaluate Game Button to Cancel</p>
-<div>{{> updateGame}}</div>
+
+<div class="ugly-button">
+     <p>Click Evaluate Game Button to Cancel</p>
+</div>
+
+<div class="panel panel-default">
+  {{> updateGame}}
+</div>
  {{/if}}
 
 

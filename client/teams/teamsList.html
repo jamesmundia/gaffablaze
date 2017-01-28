@@ -1,8 +1,12 @@
 <template name="teamsList">
     <h1>My Teams</h1>
-      <button class="add-team"><i class="fa fa-plus"></i>Add Team</button>
-        {{#if addTeamMode}}
+      <div class="ugly-button">
+      <button type="button" class="add-team">Add Team</button>
+    </div>
+        <div>{{#if addTeamMode}}
+          <div class="ugly-button">
           <p>Click Add Team Button to Cancel</p>
+        </div>
               {{#autoForm collection=addTeamToTeams id="insertTeamForm" type="insert"}}
               <fieldset>
               <legend>Add Team</legend>
@@ -13,7 +17,7 @@
               </fieldset>
               {{/autoForm}}
         {{/if}}
-
+</div>
           <ul>
       {{#if Template.subscriptionsReady}}
               {{#each teams}}
