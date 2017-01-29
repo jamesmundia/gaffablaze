@@ -10,19 +10,23 @@
   </div>
 
   <div class="panel panel-default">
+    <div class="panel-heading">
+    <h4>Game Evaluation</h4>
+  </div>
       <div class="panel-body">
-        <h4>Game Evaluation</h4>
       <h5>Buildup Rating: {{games.buildup}}</h5>
       <h5>Disrupting the Buildup Rating: {{games.drbuildup}}</h5>
        <h5>Attacking Transition Rating: {{games.atrans}}</h5>
         </div>
         </div>
 <div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Game Notes</h4>
+  </div>
   <div class="panel-body">
-     <h4>Game Notes</h4>
-         <ul>
+         <ul class="list-group">
        {{#each games.gamenotes}}
-           {{this}}<br>
+    <li class="list-group-item"> {{this}}</li> <br>
          {{/each}}
          </ul>
        </div>
