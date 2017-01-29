@@ -1,0 +1,10 @@
+<template name="seasonEval">
+      {{#autoForm collection=playerEvalSchema doc=thisPlayer id="seasonEvaluationForm" type="update" autosave=true}}
+      <fieldset>
+          <legend>Season Evaluation</legend>
+          {{> afQuickField name='textComments'}}
+          {{> afQuickField name='seasonRating'}}
+          <button type="submit" class="btn btn-primary">Submit Evaluation</button>
+      </fieldset>
+      {{/autoForm}}
+</template>

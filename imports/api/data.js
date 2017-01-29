@@ -5,7 +5,7 @@ export const Teams = new Mongo.Collection('teams');
 export const Players = new Mongo.Collection('players');
 export const Games = new Mongo.Collection('games');
 
-const Schemas = {};
+export const Schemas = {};
 
 SimpleSchema.debug = true;
 
@@ -39,80 +39,28 @@ figure out how to attach Coach User ID to all teams created by that coach:  */
 },
 });
 
-/*
-Schemas.PlayerEval = new SimpleSchema({
-
-  evaluatedPlayer: {
-    type: [String],
-    label: "Evaluated Player ID",
-    autoform: {
-      value: function () {
-        return this.playerId;
-      },
-    },
-    denyUpdate: true,
+Schemas.seasonEvaluationSchema = new SimpleSchema({
+  textComments: {
+    type: String,
+    label: 'Written notes for the evaluation',
+    max: 100,
+    optional: true
   },
-  evaluatedGame: { type: [String],
-    label: "Evaluated Game ID",
-    autoform: {
-      value: function () {
-        var id = FlowRouter.getParam('_id');
-        return Games.findOne({ _id: id });
-      },
-            },
-    denyUpdate: true,
-          },
-  indybuildup: {type: Number,
-                label: "Build Up Rating",
-                optional: true,
-                min: 1,
-                max: 5
-              },
-  indydrbuildup: {type: Number,
-                label: "Disrupting the Buildup Rating",
-                optional: true,
-                min: 1,
-                max: 5
-              },
-indyatrans: {type: Number,
-              label: "Attacking Transition Rating",
-              optional: true,
-              min: 1,
-              max: 5
-            },
-indydtrans: {type: Number,
-              optional: true,
-              label: "Defensive Transitioning Rating",
-              min: 1,
-              max: 5
-            },
-indyfinscoreoppos: {type: Number,
-              optional: true,
-              label: "Finishing Scoring Opportunities Rating",
-              min: 1,
-              max: 5
-            },
-indystopscoreoppos: {type: Number,
-              optional: true,
-              label: "Stopping Scoring Opportunities Rating",
-              min: 1,
-              max: 5
-            },
-indygamenotes: { type: [String],
-              optional: true,
-              label: "Individual Game Notes",
-              min: 10,
-              max: 500
-                }
+  seasonRating: {type: Number,
+  label: 'Overall Rating',
+    min: 1,
+    max: 5,
+  optional: true
+}
 });
-*/
 
 Schemas.Player = new SimpleSchema({
   playerId: { type: String,
     regEx: SimpleSchema.RegEx.Id,
       autoValue: function () {
+        if (this.isInsert)
         return Random.id();
-        },
+      },
     autoform: {
       type: 'hidden'
     },
@@ -145,6 +93,9 @@ return age year of team and attach it to all added players
   position: { type: String, label: 'Position', max: 13 },
   rosternumber: { type: Number, label: 'Roster Number' },
   //playerevals: { type: ['PlayerEval'], optional: true },
+  seasonEvaluation: {
+    type: Schemas.seasonEvaluationSchema,
+  }
 });
 
 Schemas.Game = new SimpleSchema({
@@ -251,5 +202,5 @@ denyUpdate: true,
 
 Teams.attachSchema(Schemas.Team);
 Players.attachSchema(Schemas.Player);
-Players.attachSchema(Schemas.PlayerEval);
+Players.attachSchema(Schemas.seasonEvaluationSchema);
 Games.attachSchema(Schemas.Game);
