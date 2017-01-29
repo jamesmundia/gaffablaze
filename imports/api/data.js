@@ -95,7 +95,7 @@ return age year of team and attach it to all added players
   //playerevals: { type: ['PlayerEval'], optional: true },
   seasonEvaluation: {
     type: Schemas.seasonEvaluationSchema,
-    optinal: true
+    optional: true
   }
 });
 
