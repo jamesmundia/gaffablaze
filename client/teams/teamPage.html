@@ -1,23 +1,23 @@
 <template name="teamPage">
   <div class="panel panel-primary">
     <div class="panel-heading">
-  <h2>{{teams.teamname}} - {{teams.clubname}} - {{teams.ageyear}}</h2>
-</div>
-</div>
-    <button class="add-player"><i class="fa fa-plus"></i>Add Player</button>
-    <button class="add-game"><i class="fa fa-plus"></i>Add Game</button>
-      {{#if addPlayerMode}}
-        <p>Click Add Player Button to Cancel</p>
-          <div>{{> addPlayer}}</div>
-      {{/if}}
-      {{#if addGameMode}}
-        <p>Click Add Player Button to Cancel</p>
-        <div>{{> addGame}}</div>
-      {{/if}}
-          <h4>Players</h4>
-              <div>
-            <ul>
-              {{#transition in="slideInLeft" out="slideOutRight"}}
+      <h2>{{teams.teamname}} - {{teams.clubname}} - {{teams.ageyear}}</h2>
+        </div>
+        </div>
+          <button class="add-player"><i class="fa fa-plus"></i>Add Player</button>
+          <button class="add-game"><i class="fa fa-plus"></i>Add Game</button>
+              {{#if addPlayerMode}}
+                  <p>Click Add Player Button to Cancel</p>
+                      <div>{{> addPlayer}}</div>
+              {{/if}}
+                {{#if addGameMode}}
+                    <p>Click Add Player Button to Cancel</p>
+                        <div>{{> addGame}}</div>
+                  {{/if}}
+                    <h4>Players</h4>
+                      <div>
+                <ul>
+                {{#transition in="slideInLeft" out="slideOutRight"}}
               {{#each players}}
               <li class="animated out">  {{> player}}</li>
               {{/each}}
@@ -25,6 +25,18 @@
             </ul>
 
                 </div>
+
+                <h4>Training Sessions</h4>
+                    {{> addSession}}
+                <div>
+          <ul>
+          {{#transition in="slideInLeft" out="slideOutRight"}}
+        {{#each sessions}}
+        <li class="animated out">  {{> session}}</li>
+        {{/each}}
+          {{/transition}}
+          </ul>
+          </div>
 
                 <h4>Games</h4>
                   <ul>

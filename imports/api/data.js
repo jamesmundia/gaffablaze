@@ -4,14 +4,13 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 export const Teams = new Mongo.Collection('teams');
 export const Players = new Mongo.Collection('players');
 export const Games = new Mongo.Collection('games');
+export const Sessions = new Mongo.Collection('sessions');
 
 export const Schemas = {};
 
 SimpleSchema.debug = true;
 
 Schemas.Team = new SimpleSchema({
-/*
-figure out how to attach Coach User ID to all teams created by that coach:  */
   coach: {
     type: String,
     autoValue: function () {
@@ -37,6 +36,17 @@ figure out how to attach Coach User ID to all teams created by that coach:  */
   ageyear: { type: Number, label: "Team Birth Year",
      autoform: {type: 'select'}
 },
+});
+
+Schemas.Session = new SimpleSchema({
+  date: {
+    type: Date,
+    label: 'Date',
+  },
+  theme: {
+    type: String,
+    label: "Session Theme"
+  }
 });
 
 Schemas.seasonEvaluationSchema = new SimpleSchema({

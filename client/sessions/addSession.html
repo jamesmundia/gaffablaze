@@ -1,0 +1,10 @@
+<template name="addSession">
+  {{#autoForm collection=addSessionToSession id="addSessionForm" type="insert" meteormethod="addSessionMethod"}}
+  <fieldset>
+      <legend>Add Session</legend>
+      {{> afQuickField name='date'}}
+      {{> afQuickField name='theme'}}
+      <button type="submit" class="btn btn-primary">Insert</button>
+  </fieldset>
+  {{/autoForm}}
+</template>
