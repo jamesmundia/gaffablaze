@@ -6,14 +6,22 @@
         </div>
           <button class="add-player"><i class="fa fa-plus"></i>Add Player</button>
           <button class="add-game"><i class="fa fa-plus"></i>Add Game</button>
+          <button class="add-session"><i class="fa fa-plus"></i>Add Session</button>
+
               {{#if addPlayerMode}}
                   <p>Click Add Player Button to Cancel</p>
                       <div>{{> addPlayer}}</div>
               {{/if}}
+
                 {{#if addGameMode}}
                     <p>Click Add Player Button to Cancel</p>
                         <div>{{> addGame}}</div>
                   {{/if}}
+
+                  {{#if addSessionMode}}
+                      <p>Click Add Session Button to Cancel</p>
+                      {{> addSession}}
+                        {{/if}}
                     <h4>Players</h4>
                       <div>
                 <ul>
@@ -27,7 +35,6 @@
                 </div>
 
                 <h4>Training Sessions</h4>
-                    {{> addSession}}
                 <div>
           <ul>
           {{#transition in="slideInLeft" out="slideOutRight"}}

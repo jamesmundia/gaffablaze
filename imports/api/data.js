@@ -215,3 +215,4 @@ Teams.attachSchema(Schemas.Team);
 Players.attachSchema(Schemas.Player);
 Players.attachSchema(Schemas.seasonEvaluationSchema);
 Games.attachSchema(Schemas.Game);
+Sessions.attachSchema(Schemas.Session)

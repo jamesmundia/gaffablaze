@@ -8,10 +8,13 @@ Meteor.methods({
     Games.insert(addGame);
   },
   'submitPlayer': function (addPlayer) {
-    console.log('Player added');
+    // console.log('Player added');
     Players.insert(addPlayer);
   },
   'submitTeam': function (addTeam) {
     Teams.insert(addTeam);
+  },
+  'addSessionMethod': function(addSession) {
+    Sessions.insert(addSession);
   }
 });

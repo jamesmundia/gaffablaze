@@ -21,6 +21,7 @@ Template.teamPage.onCreated(function () {
 	})
   this.addPlayerMode = new ReactiveVar(false);
   this.addGameMode = new ReactiveVar(false);
+  this.addSessionMode = new ReactiveVar(false);
 });
 
 Template.teamPage.events({
@@ -29,6 +30,9 @@ Template.teamPage.events({
   },
   'click .add-game': function (event, template) {
     template.addGameMode.set(!template.addGameMode.get())
+  },
+  'click .add-session': function (event, template) {
+    template.addSessionMode.set(!template.addSessionMode.get())
   }
 });
 
@@ -53,5 +57,8 @@ addPlayerMode: function () {
 },
 addGameMode: function () {
   return Template.instance().addGameMode.get();
-}
+},
+  addSessionMode() {
+  return Template.instance().addSessionMode.get();
+},
 });
