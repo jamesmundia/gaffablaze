@@ -7,7 +7,7 @@ import '../teams/teampage.js';
 import '../../lib/routing'
 
 Template.addSession.helpers({
-  addSessionToSession () {
+  addSessionToSession() {
     return Sessions;
   }
 })
