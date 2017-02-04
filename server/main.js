@@ -77,7 +77,7 @@ Meteor.publish('singlePlayer', function(playerId, teamId) {
 });
 
 Meteor.publish('sessions', function () {
-   Sessions.find({});
+  return Sessions.find({});
 })
 
 Meteor.startup(() => {

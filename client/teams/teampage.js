@@ -9,8 +9,7 @@ import { Sessions } from '../../imports/api/data.js';
 import '../players/players.js';
 import '../games/games.js';
 import '../../lib/routing.js';
-
-Meteor.subscribe('sessions');
+import '../sessions/sessions.js';
 
 Template.teamPage.onCreated(function () {
   var self = this;
@@ -18,6 +17,7 @@ Template.teamPage.onCreated(function () {
 		var teamId = FlowRouter.getParam('teamId');
 		self.subscribe('singleTeam', teamId);
     self.subscribe('gameList', teamId);
+    self.subscribe('sessions')
 	})
   this.addPlayerMode = new ReactiveVar(false);
   this.addGameMode = new ReactiveVar(false);
@@ -36,7 +36,6 @@ Template.teamPage.events({
   }
 });
 
-//This finds the teamId from the route and loads that data from the page
 Template.teamPage.helpers ({
 		teams: ()=> {
 			var teamId = FlowRouter.getParam('teamId');
@@ -52,10 +51,10 @@ Template.teamPage.helpers ({
 			var teamId = FlowRouter.getParam('teamId');
 			return Games.find({teamId: teamId});
 },
-  sessions: ()=> {
-    return Sessions.find({});
+  sessions: () => {
+    return Sessions.find();
   },
-addPlayerMode: function () {
+  addPlayerMode() {
   return Template.instance().addPlayerMode.get();
 },
 addGameMode: function () {
