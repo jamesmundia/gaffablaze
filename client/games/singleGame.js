@@ -16,7 +16,6 @@ Template.singleGame.onCreated(function () {
       self.subscribe('singleTeam', teamId);
     });
     this.updateGameMode = new ReactiveVar(false);
-
 });
 
 Template.singleGame.events({

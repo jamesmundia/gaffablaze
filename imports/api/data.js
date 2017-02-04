@@ -30,7 +30,7 @@ Schemas.Team = new SimpleSchema({
     autoform: {
         type: 'hidden'
        }
-     },
+  },
   teamname: { type: String, label: "Team Name", max: 30 },
   clubname: { type: String, label: "Club Name", max: 30 },
   ageyear: { type: Number, label: "Team Birth Year",
@@ -39,14 +39,54 @@ Schemas.Team = new SimpleSchema({
 });
 
 Schemas.Session = new SimpleSchema({
+  teamId: {
+    type: String,
+    autoform: {
+      value: function() {
+        return FlowRouter.getParam('teamId');
+      },
+      type: 'hidden'
+    },
+    denyUpdate: true,
+  },
+  sessionId: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+    autoValue: function () {
+      if (this.isInsert)
+      return Random.id();
+        },
+    denyUpdate: true,
+    autoform: {
+      type: 'hidden'
+    }
+  },
   date: {
     type: Date,
     label: 'Date',
   },
   theme: {
     type: String,
-    label: "Session Theme"
-  }
+    label: 'Session Theme'
+  },
+  warmup: {
+    type: String,
+    label: 'Warmup'
+  },
+  exercise1: {
+    type: String,
+    label: 'Exercise 1'
+  },
+  exercise2: {
+    type: String,
+    label: 'Exercise 2'
+  },exercise3: {
+    type: String,
+    label: 'Exercise 3'
+  },exercise4: {
+    type: String,
+    label: 'Exercise 4'
+  },
 });
 
 Schemas.seasonEvaluationSchema = new SimpleSchema({
@@ -85,7 +125,7 @@ Schemas.Player = new SimpleSchema({
       type: 'hidden'
     },
     denyUpdate: true,
-          },
+  },
   name: {
     type: String,
     label: 'Name',

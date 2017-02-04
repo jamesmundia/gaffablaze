@@ -17,7 +17,7 @@ Template.teamPage.onCreated(function () {
 		var teamId = FlowRouter.getParam('teamId');
 		self.subscribe('singleTeam', teamId);
     self.subscribe('gameList', teamId);
-    self.subscribe('sessions')
+    self.subscribe('teamSessions', teamId)
 	})
   this.addPlayerMode = new ReactiveVar(false);
   this.addGameMode = new ReactiveVar(false);
