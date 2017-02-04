@@ -23,8 +23,12 @@
                         <br/>
                         <div class="panel panel-default">
                           <div class="panel-heading">
-                    <h4>Players</h4>
+                    <h4>Players
+                    <button class="show-players"><i class="fa fa-plus"></i>Show Players</button>
+                    <button class="show-players"><i class="fa fa-plus"></i>Hide Players</button>
+                    </h4>
                     </div>
+                    {{#if showPlayerMode}}
                 <ul class="list-group">
                 {{#transition in="slideInLeft" out="slideOutRight"}}
               {{#each players}}
@@ -32,11 +36,16 @@
               {{/each}}
                 {{/transition}}
             </ul>
+            {{/if}}
                 </div>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                <h4>Training Sessions</h4>
+                <h4>Training Sessions
+                  <button class="show-sessions"><i class="fa fa-plus"></i>Show Sessions</button>
+                  <button class="show-sessions"><i class="fa fa-plus"></i>Hide Sessions</button>
+                </h4>
               </div>
+              {{#if showSessionMode}}
           <ul class="list-group">
           {{#transition in="slideInLeft" out="slideOutRight"}}
         {{#each sessions}}
@@ -44,11 +53,16 @@
         {{/each}}
           {{/transition}}
           </ul>
+          {{/if}}
           </div>
           <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Games</h4>
+                <h4>Games
+                  <button class="show-games"><i class="fa fa-plus"></i>Show Games</button>
+                  <button class="show-games"><i class="fa fa-plus"></i>Hide Games</button>
+                </h4>
               </div>
+                {{#if showGamesMode}}
               <ul class="list-group">
                 {{#transition in="slideInRight" out="slideOutLeft"}}
                  {{#each games}}
@@ -56,5 +70,6 @@
                     {{/each}}
                 {{/transition}}
                   </ul>
+                  {{/if}}
                 </div>
 </template>
