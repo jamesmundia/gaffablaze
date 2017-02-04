@@ -7,6 +7,7 @@ import { Teams } from '../imports/api/data.js';
 import { Players } from '../imports/api/data.js';
 import { Schemas } from '../imports/api/data.js';
 import { Games } from '../imports/api/data.js';
+import { Sessions } from '../imports/api/data.js';
 import { check } from 'meteor/check';
 
 Meteor.publish('teams', function () {
@@ -73,6 +74,10 @@ Meteor.publish('singlePlayer', function(playerId, teamId) {
     return onePlayer;
   }
   return this.ready();
+});
+
+Meteor.publish('sessions', function () {
+   Sessions.find({});
 })
 
 Meteor.startup(() => {

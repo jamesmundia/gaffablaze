@@ -4,13 +4,13 @@ import { Teams } from '../../imports/api/data.js';
 import { Players } from '../../imports/api/data.js';
 import { Schemas } from '../../imports/api/data.js';
 import { Games } from '../../imports/api/data.js';
+import { Sessions } from '../../imports/api/data.js';
 
 import '../players/players.js';
 import '../games/games.js';
 import '../../lib/routing.js';
 
-//Meteor.subscribe('players');
-//Meteor.subscribe('games');
+Meteor.subscribe('sessions');
 
 Template.teamPage.onCreated(function () {
   var self = this;
@@ -52,6 +52,9 @@ Template.teamPage.helpers ({
 			var teamId = FlowRouter.getParam('teamId');
 			return Games.find({teamId: teamId});
 },
+  sessions: ()=> {
+    return Sessions.find({});
+  },
 addPlayerMode: function () {
   return Template.instance().addPlayerMode.get();
 },

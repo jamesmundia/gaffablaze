@@ -19,6 +19,8 @@
                       <p>Click Add Session Button to Cancel</p>
                       {{> addSession}}
                         {{/if}}
+                        <br/>
+                        <br/>
                         <div class="panel panel-default">
                           <div class="panel-heading">
                     <h4>Players</h4>
@@ -26,7 +28,7 @@
                 <ul class="list-group">
                 {{#transition in="slideInLeft" out="slideOutRight"}}
               {{#each players}}
-              <li class="animated out list-group-item">  {{> player}}</li>
+              <li class="animated out list-group-item">{{> player}}</li>
               {{/each}}
                 {{/transition}}
             </ul>
@@ -38,7 +40,7 @@
           <ul class="list-group">
           {{#transition in="slideInLeft" out="slideOutRight"}}
         {{#each sessions}}
-        <li class="animated out">  {{> session}}</li>
+        <li class="animated out list-group-item">{{> session}}</li>
         {{/each}}
           {{/transition}}
           </ul>
@@ -47,10 +49,10 @@
             <div class="panel-heading">
                 <h4>Games</h4>
               </div>
-                  <ul>
+              <ul class="list-group">
                 {{#transition in="slideInRight" out="slideOutLeft"}}
                  {{#each games}}
-                <li class="animated out">   {{> game}} </li>
+                <li class="animated out list-group-item">{{> game}} </li>
                     {{/each}}
                 {{/transition}}
                   </ul>
