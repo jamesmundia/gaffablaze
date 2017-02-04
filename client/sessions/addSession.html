@@ -2,8 +2,15 @@
   {{#autoForm collection=addSessionToSession id="addSession" type="insert" meteormethod="addSessionMethod"}}
   <fieldset>
       <legend>Add Session</legend>
+      {{> afQuickField name='sessionId'}}
+      {{> afQuickField name='teamId'}}
       {{> afQuickField name='date'}}
       {{> afQuickField name='theme'}}
+      {{> afQuickField name='warmup' rows=3}}
+      {{> afQuickField name='exercise1' rows=5}}
+      {{> afQuickField name='exercise2' rows=5}}
+      {{> afQuickField name='exercise3' rows=5}}
+      {{> afQuickField name='exercise4' rows=5}}
       <button type="submit" class="btn btn-primary">Insert</button>
   </fieldset>
   {{/autoForm}}

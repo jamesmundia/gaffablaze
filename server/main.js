@@ -1,55 +1,56 @@
 // SERVER CODE
 import { Meteor } from 'meteor/meteor';
 
-import '../imports/api/data.js';
+import '../imports/api/data';
 
-import { Teams } from '../imports/api/data.js';
-import { Players } from '../imports/api/data.js';
-import { Schemas } from '../imports/api/data.js';
-import { Games } from '../imports/api/data.js';
-import { Sessions } from '../imports/api/data.js';
+import { Teams } from '../imports/api/data';
+import { Players } from '../imports/api/data';
+import { Schemas } from '../imports/api/data';
+import { Games } from '../imports/api/data';
+import { Sessions } from '../imports/api/data';
 import { check } from 'meteor/check';
 
 Meteor.publish('teams', function () {
-  var userId = this.userId;
+  let userId = this.userId;
   currentUserTeams = Teams.find({ "coach": userId });
-    if (currentUserTeams) {
-      return currentUserTeams;
-    }
+  if (currentUserTeams) {
+    return currentUserTeams;
+  }
   return this.ready();
 });
 
-Meteor.publish('singleTeam', function(teamId) {
+Meteor.publish('singleTeam', function (teamId) {
   check(teamId, String);
 
   teamRoster = [
-   Teams.find({ teamId: teamId }),
-   Players.find({ teamId: teamId }),
-];
+    Teams.find({ teamId: teamId }),
+    Players.find({ teamId: teamId }),
+    Sessions.find({ teamId: teamId })
+  ];
 
   if (teamRoster) {
     return teamRoster;
 }
-return this.ready();
+  return this.ready();
 });
 
-Meteor.publish('singleGame', function(id) {
+Meteor.publish('singleGame', function (id) {
   check(id, String);
 
     thisGame = Games.find({ _id: id });
 
-    if (thisGame) {
+  if (thisGame) {
       return thisGame;
     }
     return this.ready();
 });
 
 Meteor.publish('games', function () {
-  var userId = this.userId;
+  let userId = this.userId;
   currentUserGames = Games.find({ "coach": userId });
-    if (currentUserGames) {
-      return currentUserGames;
-    }
+  if (currentUserGames) {
+    return currentUserGames;
+  }
   return this.ready();
 });
 
@@ -59,9 +60,9 @@ Meteor.publish('gameList', function(teamId) {
     return currentTeamSchedule;
   }
   return this.ready();
-})
+});
 
-Meteor.publish('singlePlayer', function(playerId, teamId) {
+Meteor.publish('singlePlayer', function (playerId, teamId) {
   check(playerId, String);
   check(teamId, String);
 
@@ -76,9 +77,20 @@ Meteor.publish('singlePlayer', function(playerId, teamId) {
   return this.ready();
 });
 
-Meteor.publish('sessions', function () {
-  return Sessions.find({});
-})
+Meteor.publish('singleSession', function (sessionId, teamId) {
+  check(sessionId, String);
+  check(teamId, String);
+
+  thisSession = [
+    Sessions.find({ sessionId: sessionId }),
+    Teams.find({ teamId: teamId }),
+];
+
+  if (thisSession) {
+    return thisSession;
+  }
+  return this.ready();
+});
 
 Meteor.startup(() => {
 
