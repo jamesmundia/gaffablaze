@@ -22,6 +22,9 @@ Template.teamPage.onCreated(function () {
   this.addPlayerMode = new ReactiveVar(false);
   this.addGameMode = new ReactiveVar(false);
   this.addSessionMode = new ReactiveVar(false);
+  this.showPlayerMode = new ReactiveVar(false);
+  this.showSessionMode = new ReactiveVar(false);
+  this.showGamesMode = new ReactiveVar(false);
 });
 
 Template.teamPage.events({
@@ -33,7 +36,16 @@ Template.teamPage.events({
   },
   'click .add-session': function (event, template) {
     template.addSessionMode.set(!template.addSessionMode.get())
-  }
+  },
+  'click .show-players': function (event, template) {
+    template.showPlayerMode.set(!template.showPlayerMode.get())
+  },
+  'click .show-sessions': function (event, template) {
+    template.showSessionMode.set(!template.showSessionMode.get())
+  },
+  'click .show-games': function (event, template) {
+    template.showGamesMode.set(!template.showGamesMode.get())
+  },
 });
 
 Template.teamPage.helpers ({
@@ -55,12 +67,21 @@ Template.teamPage.helpers ({
     return Sessions.find();
   },
   addPlayerMode() {
-  return Template.instance().addPlayerMode.get();
+    return Template.instance().addPlayerMode.get();
 },
 addGameMode: function () {
   return Template.instance().addGameMode.get();
 },
   addSessionMode() {
-  return Template.instance().addSessionMode.get();
-},
+    return Template.instance().addSessionMode.get();
+  },
+  showPlayerMode() {
+    return Template.instance().showPlayerMode.get();
+  },
+  showSessionMode() {
+    return Template.instance().showSessionMode.get();
+  },
+  showGamesMode() {
+    return Template.instance().showGamesMode.get();
+  },
 });
