@@ -7,36 +7,35 @@
           <button class="add-player"><i class="fa fa-plus"></i>Add Player</button>
           <button class="add-game"><i class="fa fa-plus"></i>Add Game</button>
           <button class="add-session"><i class="fa fa-plus"></i>Add Session</button>
-
               {{#if addPlayerMode}}
                   <p>Click Add Player Button to Cancel</p>
                       <div>{{> addPlayer}}</div>
               {{/if}}
-
                 {{#if addGameMode}}
                     <p>Click Add Player Button to Cancel</p>
                         <div>{{> addGame}}</div>
                   {{/if}}
-
                   {{#if addSessionMode}}
                       <p>Click Add Session Button to Cancel</p>
                       {{> addSession}}
                         {{/if}}
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
                     <h4>Players</h4>
-                      <div>
-                <ul>
+                    </div>
+                <ul class="list-group">
                 {{#transition in="slideInLeft" out="slideOutRight"}}
               {{#each players}}
-              <li class="animated out">  {{> player}}</li>
+              <li class="animated out list-group-item">  {{> player}}</li>
               {{/each}}
                 {{/transition}}
             </ul>
-
                 </div>
-
+                <div class="panel panel-default">
+                  <div class="panel-heading">
                 <h4>Training Sessions</h4>
-                <div>
-          <ul>
+              </div>
+          <ul class="list-group">
           {{#transition in="slideInLeft" out="slideOutRight"}}
         {{#each sessions}}
         <li class="animated out">  {{> session}}</li>
@@ -44,8 +43,10 @@
           {{/transition}}
           </ul>
           </div>
-
+          <div class="panel panel-default">
+            <div class="panel-heading">
                 <h4>Games</h4>
+              </div>
                   <ul>
                 {{#transition in="slideInRight" out="slideOutLeft"}}
                  {{#each games}}
@@ -53,4 +54,5 @@
                     {{/each}}
                 {{/transition}}
                   </ul>
+                </div>
 </template>
