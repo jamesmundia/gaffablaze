@@ -1,0 +1,10 @@
+<template name="indyPlayerEval">
+      {{#autoForm schema=indyPlayerEvalGameSchema doc=thisPlayer
+        id="indyPlayerEvalForm" type="update" autosave=true}}
+      <fieldset>
+          <legend>Game Evaluation</legend>
+          {{> afQuickField name='player' options="selectPlayer"}}
+          <button type="submit" class="btn btn-primary">Submit Evaluation</button>
+      </fieldset>
+      {{/autoForm}}
+</template>

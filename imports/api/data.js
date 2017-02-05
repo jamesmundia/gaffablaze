@@ -38,9 +38,16 @@ Schemas.Team = new SimpleSchema({
 },
 });
 
-/*
-ExerciseSchema = new SimpleSchema({
-  totalDuration: {
+Schemas.Exercise = new SimpleSchema({
+  exerciseDetails: {
+	    type: String,
+	    label: 'Exercise Description and Details',
+	    autoform: {
+	      rows: 6
+	    },
+	    optional: true,
+	  },
+	  totalTime: {
     type: Number,
     label: 'Duration',
     optional: true,
@@ -52,7 +59,7 @@ ExerciseSchema = new SimpleSchema({
   },
   restTime: {
     type: Number,
-    label: 'Work Duration',
+    label: 'Rest Duration',
     optional: true,
   },
   intervals: {
@@ -60,12 +67,7 @@ ExerciseSchema = new SimpleSchema({
     label: 'Intervals',
     optional: true,
   },
-  exerciseDetails: {
-    type: String,
-    optional: true,
-  }
 });
-*/
 
 Schemas.Session = new SimpleSchema({
   teamId: {
@@ -99,27 +101,27 @@ Schemas.Session = new SimpleSchema({
     label: 'Session Theme'
   },
   warmup: {
-    type: String,
+    type: Schemas.Exercise,
     label: 'Warmup',
     optional: true,
   },
   exercise1: {
-    type: String,
+    type: Schemas.Exercise,
     label: 'Exercise 1',
     optional: true,
   },
   exercise2: {
-    type: String,
+    type: Schemas.Exercise,
     label: 'Exercise 2',
     optional: true,
   },
   exercise3: {
-    type: String,
+    type: Schemas.Exercise,
     label: 'Exercise 3',
     optional: true,
   },
   exercise4: {
-    type: String,
+    type: Schemas.Exercise,
     label: 'Exercise 4',
     optional: true,
   },
@@ -143,6 +145,61 @@ Schemas.seasonEvaluationSchema = new SimpleSchema({
     max: 5,
   optional: true
 }
+});
+
+Schemas.indyPlayerEvalForGame = new SimpleSchema({
+  gameId: {
+    type: String,
+    autoform: {
+      value: function() {
+        return FlowRouter.getParam('gameId');
+      },
+      type: 'hidden'
+    },
+    denyUpdate: true,
+  },
+  indybuildup: {
+    type: Number,
+    label: 'Individual Buildup Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+  indydrbuildup: {
+    type: Number,
+    label: 'Individual Disrupting the Buildup Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+  indyattrans: {
+    type: Number,
+    label: 'Individual Attacking Transition Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+  indydeftrans: {
+    type: Number,
+    label: 'Individual Defending Transition Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+  indyfincore: {
+    type: Number,
+    label: 'Individual Finishing Scoring Chances Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+  indystopscore: {
+    type: Number,
+    label: 'Individual Stopping Scoring Chances Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
 });
 
 Schemas.Player = new SimpleSchema({
@@ -187,10 +244,22 @@ return age year of team and attach it to all added players
   seasonEvaluation: {
     type: Schemas.seasonEvaluationSchema,
     optional: true
-  }
+  },
+  playersGameEvals: {
+    type: [Schemas.indyPlayerEvalForGame],
+  },
 });
 
 Schemas.Game = new SimpleSchema({
+  gameId: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+    autoValue() {
+      if (this.isInsert)
+        return Random.id();
+    },
+    denyUpdate: true
+  },
   opponent: {
              type: String,
              label: "Opponent",

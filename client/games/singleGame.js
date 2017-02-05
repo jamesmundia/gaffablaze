@@ -10,9 +10,9 @@ import '../teams/teams.js'
 Template.singleGame.onCreated(function () {
     const self = this;
     self.autorun(function () {
-      var id = FlowRouter.getParam('_id');
+    var gameId = FlowRouter.getParam('gameId');
       var teamId = FlowRouter.getParam('teamId');
-      self.subscribe('singleGame', id);
+      self.subscribe('singleGame', gameId);
       self.subscribe('singleTeam', teamId);
     });
     this.updateGameMode = new ReactiveVar(false);
@@ -30,8 +30,8 @@ Template.singleGame.helpers({
     return Teams.findOne({ teamId: teamId });
   },
   games: ()=> {
-    var id = FlowRouter.getParam('_id');
-    return Games.findOne({ _id: id });
+    var gameId = FlowRouter.getParam('gameId');
+    return Games.findOne({ gameId: gameId });
   },
   players: () => {
     //only show players with this teamId, use for now instead of template level subs
