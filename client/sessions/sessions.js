@@ -4,10 +4,11 @@ import { Teams } from '../../imports/api/data.js';
 import { Sessions } from '../../imports/api/data.js';
 
 import '../teams/teampage.js';
-import '../../lib/routing'
+import '../../lib/routing';
+import './singleSession';
 
 Template.addSession.helpers({
   addSessionToSession() {
     return Sessions;
-  }
+  },
 })

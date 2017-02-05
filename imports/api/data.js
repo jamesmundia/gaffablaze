@@ -38,6 +38,35 @@ Schemas.Team = new SimpleSchema({
 },
 });
 
+/*
+ExerciseSchema = new SimpleSchema({
+  totalDuration: {
+    type: Number,
+    label: 'Duration',
+    optional: true,
+  },
+  workTime: {
+    type: Number,
+    label: 'Work Duration',
+    optional: true,
+  },
+  restTime: {
+    type: Number,
+    label: 'Work Duration',
+    optional: true,
+  },
+  intervals: {
+    type: Number,
+    label: 'Intervals',
+    optional: true,
+  },
+  exerciseDetails: {
+    type: String,
+    optional: true,
+  }
+});
+*/
+
 Schemas.Session = new SimpleSchema({
   teamId: {
     type: String,
@@ -71,21 +100,33 @@ Schemas.Session = new SimpleSchema({
   },
   warmup: {
     type: String,
-    label: 'Warmup'
+    label: 'Warmup',
+    optional: true,
   },
   exercise1: {
     type: String,
-    label: 'Exercise 1'
+    label: 'Exercise 1',
+    optional: true,
   },
   exercise2: {
     type: String,
-    label: 'Exercise 2'
-  },exercise3: {
+    label: 'Exercise 2',
+    optional: true,
+  },
+  exercise3: {
     type: String,
-    label: 'Exercise 3'
-  },exercise4: {
+    label: 'Exercise 3',
+    optional: true,
+  },
+  exercise4: {
     type: String,
-    label: 'Exercise 4'
+    label: 'Exercise 4',
+    optional: true,
+  },
+  sessionEval: {
+    type: [String],
+    label: 'Post Session Notes',
+    optional: true,
   },
 });
 
@@ -255,4 +296,4 @@ Teams.attachSchema(Schemas.Team);
 Players.attachSchema(Schemas.Player);
 Players.attachSchema(Schemas.seasonEvaluationSchema);
 Games.attachSchema(Schemas.Game);
-Sessions.attachSchema(Schemas.Session)
+Sessions.attachSchema(Schemas.Session);

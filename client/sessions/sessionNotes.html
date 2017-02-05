@@ -1,0 +1,8 @@
+<template name="sessionNotes">
+  {{#autoForm collection=addSessionNotestoSession doc=thisSession id="sessionNotesForm" type="update" autosave=true}}
+  <fieldset>
+    {{> afQuickField name='sessionEval'}}
+  </fieldset>
+       <button type="submit" class="btn btn-primary">Add Session Notes</button>
+  {{/autoForm}}
+</template>

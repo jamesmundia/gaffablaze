@@ -32,14 +32,13 @@ canShow: function () {
 }
 });
 
-/*
 AutoForm.addHooks('submitGame', {
   onSuccess: function () {
     console.log("Game Added to the Bwreent");
   }
 });
 
-AutoForm.addHooks('submitPlayer', {
+AutoForm.hooks('submitPlayer', {
   onSuccess: function () {
     console.log("Player Added, Showing Success Notification");
   }
@@ -50,6 +49,8 @@ AutoForm.addHooks('submitTeam', {
     console.log("Team Added to the Bwreent");
   }
 });
+
+/*
 
  Template.player.events({
 'click.increment, click.decrement' : function () {

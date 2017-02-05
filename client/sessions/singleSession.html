@@ -5,8 +5,39 @@
   </div>
   <div class="panel-body">
      <h3 class="panel-title">{{sessions.theme}} - {{sessions.date}}</h3>
+     </div>
+     {{#with sessions}}
+       <ul>
+       <li>{{warmup}}</li>
+       <li>{{exercise1}}</li>
+       <li>{{exercise2}}</li>
+       <li>{{exercise3}}</li>
+       <li>{{exercise4}}</li>
+     </ul>
+     {{/with}}
+  </div>
+<button class="add-session-notes"><i class="fa fa-plus"></i>Add Session Notes</button>
+<br/>
+      {{#if addSessionNotesMode}}
+      <br/>
+  {{> sessionNotes}}
+      {{/if}}
+  <br/>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h5>Session Notes</h5>
+    </div>
+    <div class="panel-body">
+      <ul class="list-group">
+        {{#each sessions.sessionEval}}
+ <li class="list-group-item">{{this}}</li> <br>
+         {{/each}}
+      </ul>
     </div>
   </div>
+
+
 
 <!--
 <div>
