@@ -38,9 +38,16 @@ Schemas.Team = new SimpleSchema({
 },
 });
 
-/*
-ExerciseSchema = new SimpleSchema({
-  totalDuration: {
+Schemas.Exercise = new SimpleSchema({
+  exerciseDetails: {
+    type: String,
+    label: 'Exercise Description and Details',
+    autoform: {
+      rows: 6
+    },
+    optional: true,
+  },
+  totalTime: {
     type: Number,
     label: 'Duration',
     optional: true,
@@ -52,7 +59,7 @@ ExerciseSchema = new SimpleSchema({
   },
   restTime: {
     type: Number,
-    label: 'Work Duration',
+    label: 'Rest Duration',
     optional: true,
   },
   intervals: {
@@ -60,12 +67,7 @@ ExerciseSchema = new SimpleSchema({
     label: 'Intervals',
     optional: true,
   },
-  exerciseDetails: {
-    type: String,
-    optional: true,
-  }
 });
-*/
 
 Schemas.Session = new SimpleSchema({
   teamId: {
@@ -99,27 +101,27 @@ Schemas.Session = new SimpleSchema({
     label: 'Session Theme'
   },
   warmup: {
-    type: String,
+    type: Schemas.Exercise,
     label: 'Warmup',
     optional: true,
   },
   exercise1: {
-    type: String,
+    type: Schemas.Exercise,
     label: 'Exercise 1',
     optional: true,
   },
   exercise2: {
-    type: String,
+    type: Schemas.Exercise,
     label: 'Exercise 2',
     optional: true,
   },
   exercise3: {
-    type: String,
+    type: Schemas.Exercise,
     label: 'Exercise 3',
     optional: true,
   },
   exercise4: {
-    type: String,
+    type: Schemas.Exercise,
     label: 'Exercise 4',
     optional: true,
   },
@@ -145,8 +147,17 @@ Schemas.seasonEvaluationSchema = new SimpleSchema({
 }
 });
 
-/*
 Schemas.indyPlayerEvalForGame = new SimpleSchema({
+  gameId: {
+    type: String,
+    autoform: {
+      value: function() {
+        return FlowRouter.getParam('gameId');
+      },
+      type: 'hidden'
+    },
+    denyUpdate: true,
+  },
   indybuildup: {
     type: Number,
     label: 'Individual Buildup Rating',
@@ -190,7 +201,6 @@ Schemas.indyPlayerEvalForGame = new SimpleSchema({
     optional: true,
   },
 });
-*/
 
 Schemas.Player = new SimpleSchema({
   playerId: { type: String,
@@ -234,7 +244,10 @@ return age year of team and attach it to all added playersindyPlayerEvalForGame
   seasonEvaluation: {
     type: Schemas.seasonEvaluationSchema,
     optional: true
-  }
+  },
+  playersGameEvals: {
+    type: [Schemas.indyPlayerEvalForGame],
+  },
 });
 
 Schemas.Game = new SimpleSchema({
