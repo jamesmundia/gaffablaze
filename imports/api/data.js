@@ -365,3 +365,4 @@ Players.attachSchema(Schemas.Player);
 Players.attachSchema(Schemas.seasonEvaluationSchema);
 Games.attachSchema(Schemas.Game);
 Sessions.attachSchema(Schemas.Session);
+Players.attachSchema(Schemas.indyPlayerEvalForGame);

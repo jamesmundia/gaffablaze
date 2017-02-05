@@ -1,19 +1,10 @@
 <template name="indyPlayerEval">
-      {{#autoForm schema=indyPlayerEvalGameSchema doc=thisPlayerThisGame
+      {{#autoForm schema=indyPlayerEvalGameSchema doc=thisPlayer
         id="indyPlayerEvalForm" type="update" autosave=true}}
       <fieldset>
           <legend>Game Evaluation</legend>
-          {{> afQuickField name='result' options="allowed"}}
-          {{> afQuickField name='teamscore'}}
-          {{> afQuickField name='opposcore'}}
-          {{> afQuickField name='buildup'}}
-          {{> afQuickField name='drbuildup'}}
-          {{> afQuickField name='atrans'}}
-          {{> afQuickField name='dtrans'}}
-          {{> afQuickField name='finscoreopps'}}
-          {{> afQuickField name='stopscoreopps'}}
-          {{> afQuickField name='gamenotes' rows=6}}
-          <button type="submit" class="btn btn-primary">Update Game</button>
+          {{> afQuickField name='player' options="selectPlayer"}}
+          <button type="submit" class="btn btn-primary">Submit Evaluation</button>
       </fieldset>
       {{/autoForm}}
 </template>

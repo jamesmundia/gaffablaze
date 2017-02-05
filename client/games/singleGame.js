@@ -42,3 +42,16 @@ Template.singleGame.helpers({
     return Template.instance().updateGameMode.get();
   },
 });
+
+Template.indyPlayerEvalForGame.helpers({
+  indyPlayerEvalGameSchema(){
+    return Schemas.indyPlayerEvalGameSchema;
+  },
+  selectPlayer() {
+    var teamId = FlowRouter.getParam('teamId');
+    return Players.find({ teamId: teamId });
+  },
+  thisPlayer() {
+    return Players.find();
+  },
+});
