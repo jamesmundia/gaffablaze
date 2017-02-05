@@ -1,15 +1,11 @@
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
-
 export const Teams = new Mongo.Collection('teams');
 export const Players = new Mongo.Collection('players');
 export const Games = new Mongo.Collection('games');
 export const Sessions = new Mongo.Collection('sessions');
-
 export const Schemas = {};
-
 SimpleSchema.debug = true;
-
 Schemas.Team = new SimpleSchema({
   coach: {
     type: String,
@@ -37,17 +33,16 @@ Schemas.Team = new SimpleSchema({
      autoform: {type: 'select'}
 },
 });
-
 Schemas.Exercise = new SimpleSchema({
   exerciseDetails: {
-	    type: String,
-	    label: 'Exercise Description and Details',
-	    autoform: {
-	      rows: 6
-	    },
-	    optional: true,
-	  },
-	  totalTime: {
+    type: String,
+    label: 'Exercise Description and Details',
+    autoform: {
+      rows: 6
+    },
+    optional: true,
+  },
+  totalTime: {
     type: Number,
     label: 'Duration',
     optional: true,
@@ -68,7 +63,6 @@ Schemas.Exercise = new SimpleSchema({
     optional: true,
   },
 });
-
 Schemas.Session = new SimpleSchema({
   teamId: {
     type: String,
@@ -131,7 +125,6 @@ Schemas.Session = new SimpleSchema({
     optional: true,
   },
 });
-
 Schemas.seasonEvaluationSchema = new SimpleSchema({
   textComments: {
     type: String,
@@ -146,7 +139,6 @@ Schemas.seasonEvaluationSchema = new SimpleSchema({
   optional: true
 }
 });
-
 Schemas.indyPlayerEvalForGame = new SimpleSchema({
   gameId: {
     type: String,
@@ -201,7 +193,6 @@ Schemas.indyPlayerEvalForGame = new SimpleSchema({
     optional: true,
   },
 });
-
 Schemas.Player = new SimpleSchema({
   playerId: { type: String,
     regEx: SimpleSchema.RegEx.Id,
@@ -249,16 +240,14 @@ return age year of team and attach it to all added players
     type: [Schemas.indyPlayerEvalForGame],
   },
 });
-
 Schemas.Game = new SimpleSchema({
   gameId: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
     autoValue() {
-      if (this.isInsert)
+        if (this.isInsert)
         return Random.id();
-    },
-    denyUpdate: true
+    }
   },
   opponent: {
              type: String,
@@ -360,9 +349,9 @@ denyUpdate: true,
               optional: true
   },
 });
-
 Teams.attachSchema(Schemas.Team);
 Players.attachSchema(Schemas.Player);
 Players.attachSchema(Schemas.seasonEvaluationSchema);
 Games.attachSchema(Schemas.Game);
 Sessions.attachSchema(Schemas.Session);
+Players.attachSchema(Schemas.indyPlayerEvalForGame);
