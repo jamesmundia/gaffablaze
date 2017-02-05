@@ -22,28 +22,18 @@ Template.updateGame.helpers({
     return Games;
   },
   thisGame: function () {
-    var id = FlowRouter.getParam('_id');
-    return Games.findOne({ _id: id });
+    var gameId = FlowRouter.getParam('gameId');
+    return Games.findOne({ gameId: gameId });
   }
 });
 
 Template.game.helpers({
   games: ()=> {
-    var id = FlowRouter.getParam('_id');
-    return Games.findOne({ _id: id });
+    var gameId = FlowRouter.getParam('gameId');
+    return Games.findOne({ gameId: gameId });
   },
   teams: function() {
 		var teamId = FlowRouter.getParam('teamId');
 		return Teams.findOne({teamId: teamId});
-  }
-});
-
-Template.playerGameEval.helpers({
-  playerEvalSchema: function () {
-    return Games;
-  },
-  thisPlayerEvaluation: function () {
-    var id = FlowRouter.getParam('_id');
-    return Games.findOne({ _id: id });
   }
 });

@@ -145,6 +145,53 @@ Schemas.seasonEvaluationSchema = new SimpleSchema({
 }
 });
 
+/*
+Schemas.indyPlayerEvalForGame = new SimpleSchema({
+  indybuildup: {
+    type: Number,
+    label: 'Individual Buildup Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+  indydrbuildup: {
+    type: Number,
+    label: 'Individual Disrupting the Buildup Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+  indyattrans: {
+    type: Number,
+    label: 'Individual Attacking Transition Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+  indydeftrans: {
+    type: Number,
+    label: 'Individual Defending Transition Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+  indyfincore: {
+    type: Number,
+    label: 'Individual Finishing Scoring Chances Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+  indystopscore: {
+    type: Number,
+    label: 'Individual Stopping Scoring Chances Rating',
+    min: 1,
+    max: 5,
+    optional: true,
+  },
+});
+*/
+
 Schemas.Player = new SimpleSchema({
   playerId: { type: String,
     regEx: SimpleSchema.RegEx.Id,
@@ -173,7 +220,7 @@ Schemas.Player = new SimpleSchema({
     max: 30
   },
 /*
-return age year of team and attach it to all added players
+return age year of team and attach it to all added playersindyPlayerEvalForGame
 	age: {type: Number,
         autoValue: function () {
           return this.Teams.ageyear.findOne();
@@ -191,6 +238,14 @@ return age year of team and attach it to all added players
 });
 
 Schemas.Game = new SimpleSchema({
+  gameId: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+    autoValue() {
+        if (this.isInsert)
+        return Random.id();
+    }
+  },
   opponent: {
              type: String,
              label: "Opponent",

@@ -34,10 +34,10 @@ Meteor.publish('singleTeam', function (teamId) {
   return this.ready();
 });
 
-Meteor.publish('singleGame', function (id) {
-  check(id, String);
+Meteor.publish('singleGame', function (gameId) {
+  check(gameId, String);
 
-    thisGame = Games.find({ _id: id });
+    thisGame = Games.find({ gameId: gameId });
 
   if (thisGame) {
       return thisGame;
