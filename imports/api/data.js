@@ -230,7 +230,7 @@ Schemas.Player = new SimpleSchema({
     max: 30
   },
 /*
-return age year of team and attach it to all added playersindyPlayerEvalForGame
+return age year of team and attach it to all added players
 	age: {type: Number,
         autoValue: function () {
           return this.Teams.ageyear.findOne();
