@@ -4,8 +4,12 @@ export const Teams = new Mongo.Collection('teams');
 export const Players = new Mongo.Collection('players');
 export const Games = new Mongo.Collection('games');
 export const Sessions = new Mongo.Collection('sessions');
+export const IndyGameEvals = new Mongo.Collection('indygameevals');
+
 export const Schemas = {};
+
 SimpleSchema.debug = true;
+
 Schemas.Team = new SimpleSchema({
   coach: {
     type: String,
@@ -63,6 +67,7 @@ Schemas.Exercise = new SimpleSchema({
     optional: true,
   },
 });
+
 Schemas.Session = new SimpleSchema({
   teamId: {
     type: String,
@@ -125,6 +130,7 @@ Schemas.Session = new SimpleSchema({
     optional: true,
   },
 });
+
 Schemas.seasonEvaluationSchema = new SimpleSchema({
   textComments: {
     type: String,
@@ -139,14 +145,22 @@ Schemas.seasonEvaluationSchema = new SimpleSchema({
   optional: true
 }
 });
-Schemas.indyPlayerEvalForGame = new SimpleSchema({
+
+Schemas.indyPlayerEvalForGameSchema = new SimpleSchema({
+  playerId: {
+    type: String,
+    autoform: {
+      type: 'hidden'
+    },
+    denyUpdate: true,
+  },
   gameId: {
     type: String,
     autoform: {
-      value: function() {
-        return FlowRouter.getParam('gameId');
+      autoValue() {
+        FlowRouter.getParam('gameId');
       },
-      type: 'hidden'
+      type: 'hidden',
     },
     denyUpdate: true,
   },
@@ -192,13 +206,23 @@ Schemas.indyPlayerEvalForGame = new SimpleSchema({
     max: 5,
     optional: true,
   },
+  indyGameComments: {
+    type: String,
+    label: 'Comments for Individual Game Evaluation',
+    optional: true,
+    autoform: {
+      rows: 3,
+    },
+  },
 });
+
 Schemas.Player = new SimpleSchema({
   playerId: { type: String,
     regEx: SimpleSchema.RegEx.Id,
       autoValue: function () {
-        if (this.isInsert)
+        if (this.isInsert) {
         return Random.id();
+        }
       },
     autoform: {
       type: 'hidden'
@@ -209,7 +233,9 @@ Schemas.Player = new SimpleSchema({
     type: String,
     autoform: {
       value: function() {
+        if (this.isInsert){
         return FlowRouter.getParam('teamId');
+        }
       },
       type: 'hidden'
     },
@@ -236,10 +262,8 @@ return age year of team and attach it to all added players
     type: Schemas.seasonEvaluationSchema,
     optional: true
   },
-  playersGameEvals: {
-    type: [Schemas.indyPlayerEvalForGame],
-  },
 });
+
 Schemas.Game = new SimpleSchema({
   gameId: {
     type: String,
@@ -354,4 +378,4 @@ Players.attachSchema(Schemas.Player);
 Players.attachSchema(Schemas.seasonEvaluationSchema);
 Games.attachSchema(Schemas.Game);
 Sessions.attachSchema(Schemas.Session);
-Players.attachSchema(Schemas.indyPlayerEvalForGame);
+IndyGameEvals.attachSchema(Schemas.indyPlayerEvalForGameSchema);

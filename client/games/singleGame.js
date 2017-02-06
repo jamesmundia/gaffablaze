@@ -4,7 +4,10 @@ import { Teams } from '../../imports/api/data.js';
 import { Players } from '../../imports/api/data';
 import { Schemas } from '../../imports/api/data.js';
 import { Games } from '../../imports/api/data.js';
+import { IndyGameEvals } from '../../imports/api/data.js';
+
 import '../teams/teams.js'
+
 Template.singleGame.onCreated(function () {
     const self = this;
     self.autorun(function () {
@@ -37,4 +40,13 @@ Template.singleGame.helpers({
   updateGameMode: function () {
     return Template.instance().updateGameMode.get();
   },
+});
+
+Template.indyPlayerEvalsForGame.helpers({
+  indyPlayerEvalGameSchema() {
+    return Schemas.indyPlayerEvalForGameSchema;
+  },
+  playersForGameEvals() {
+    return Players;
+  }
 });
