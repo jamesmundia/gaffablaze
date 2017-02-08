@@ -229,17 +229,16 @@ Schemas.Player = new SimpleSchema({
     },
     denyUpdate: true,
 },
-  teamId: {
-    type: String,
-    autoValue: function() {
-      if (this.isInsert)
+teamId: {
+  type: String,
+  autoform: {
+    value: function() {
       return FlowRouter.getParam('teamId');
     },
-    autoform: {
-      type: 'hidden',
-      },
-    denyUpdate: true,
+    type: 'hidden'
   },
+  denyUpdate: true,
+        },
   name: {
     type: String,
     label: 'Name',
