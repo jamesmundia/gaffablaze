@@ -33,5 +33,13 @@ Meteor.methods({
       throw new Meteor.Error('500', 'Must be logged in to add new sessions.');
     }
     Sessions.insert(addSession);
-  }
+  },
+  updateGameMethod: function (modifier, _id) {
+    // check (doc, Schemas.Game);
+    if (!this.userId) {
+      throw new Meteor.Error('500', 'Must be logged in to add new sessions.');
+    }
+
+    Games.update(_id, modifier);
+  },
 });

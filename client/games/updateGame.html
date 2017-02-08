@@ -1,5 +1,6 @@
 <template name="updateGame">
-      {{#autoForm collection=updateGames doc=thisGame id="updateGameForm" type="update" autosave=true}}
+      {{#autoForm collection=updateGames doc=thisGame id="updateGameForm" type="method-update"
+      meteormethod="updateGameMethod" autosave=true}}
       <fieldset>
           <legend>Game Evaluation</legend>
           {{> afQuickField name='result' options="allowed"}}
