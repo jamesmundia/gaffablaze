@@ -1,10 +1,59 @@
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+
 export const Teams = new Mongo.Collection('teams');
 export const Players = new Mongo.Collection('players');
 export const Games = new Mongo.Collection('games');
 export const Sessions = new Mongo.Collection('sessions');
 export const IndyGameEvals = new Mongo.Collection('indygameevals');
+
+Teams.allow({
+  insert: () => false,
+  update: () => false,
+  remove: () => false,
+});
+
+Teams.deny({
+  insert: () => true,
+  update: () => true,
+  remove: () => true,
+});
+
+Players.allow({
+  insert: () => false,
+  update: () => false,
+  remove: () => false,
+});
+
+Players.deny({
+  insert: () => true,
+  update: () => true,
+  remove: () => true,
+});
+
+Games.allow({
+  insert: () => false,
+  update: () => false,
+  remove: () => false,
+});
+
+Games.deny({
+  insert: () => true,
+  update: () => true,
+  remove: () => true,
+});
+
+Sessions.allow({
+  insert: () => false,
+  update: () => false,
+  remove: () => false,
+});
+
+Sessions.deny({
+  insert: () => true,
+  update: () => true,
+  remove: () => true,
+});
 
 export const Schemas = {};
 

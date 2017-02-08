@@ -10,6 +10,8 @@ import { Players } from '../imports/api/data';
 import { Schemas } from '../imports/api/data';
 import { Games } from '../imports/api/data';
 
+import '../imports/methods';
+
 import './teams/teams';
 import './players/players';
 import './games/games';

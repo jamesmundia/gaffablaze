@@ -7,6 +7,9 @@ import { Schemas } from '../imports/api/data';
 import { Games } from '../imports/api/data';
 import { Sessions } from '../imports/api/data';
 import { check } from 'meteor/check';
+
+import '../imports/methods';
+
 Meteor.publish('teams', function () {
   let userId = this.userId;
   currentUserTeams = Teams.find({ "coach": userId });
