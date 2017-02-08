@@ -9,26 +9,26 @@ import { Schemas } from '../imports/api/data';
 import { check } from 'meteor/check';
 
 Meteor.methods({
-  'submitGame': function (addGame) {
+  submitGame(addGame) {
     if (!this.userId) {
       throw new Meteor.Error('500', 'Must be logged in to add new games.');
     }
     Games.insert(addGame);
   },
-  'submitPlayer': function (addPlayer) {
+  submitPlayer(addPlayer) {
     if (!this.userId) {
       throw new Meteor.Error('500', 'Must be logged in to add new players.');
     }
     // console.log('Player added');
     Players.insert(addPlayer);
   },
-  'submitTeam': function (addTeam) {
+  submitTeam(addTeam) {
     if (!this.userId) {
       throw new Meteor.Error('500', 'Must be logged in to add new teams.');
     }
     Teams.insert(addTeam);
   },
-  'addSessionMethod': function(addSession) {
+  addSessionMethod(addSession) {
     if (!this.userId) {
       throw new Meteor.Error('500', 'Must be logged in to add new sessions.');
     }

@@ -1,5 +1,5 @@
 <template name="addSession">
-  {{#autoForm collection=addSessionToSession id="addSession" type="insert" meteormethod="addSessionMethod"}}
+  {{#autoForm collection=addSessionToSession id="addSession" type="method" meteormethod="addSessionMethod"}}
   <fieldset>
       <legend>Add Session</legend>
       {{> afQuickField name='sessionId'}}

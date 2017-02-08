@@ -9,7 +9,7 @@
           {{#if addTeamMode}}
       <br/>
           <p>Click Add Team Button to Cancel</p>
-              {{#autoForm collection=addTeamToTeams id="insertTeamForm" type="insert"}}
+              {{#autoForm collection=addTeamToTeams id="insertTeamForm" type="method" meteormethod="submitTeam"}}
               <fieldset>
               <legend>Add Team</legend>
               {{> afQuickField name='teamname'}}
