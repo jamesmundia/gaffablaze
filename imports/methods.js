@@ -35,7 +35,7 @@ Meteor.methods({
     Sessions.insert(addSession);
   },
   updateGameMethod: function (modifier, _id) {
-    // check (doc, Schemas.Game);
+     check (modifier, Schemas.Game);
     if (!this.userId) {
       throw new Meteor.Error('500', 'Must be logged in to add new sessions.');
     }
