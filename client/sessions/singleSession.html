@@ -6,15 +6,15 @@
   <div class="panel-body">
      <h3 class="panel-title">{{sessions.theme}} - {{sessions.date}}</h3>
      </div>
-     {{#with sessions}}
        <ul>
-       <li>{{sessions.warmup}}</li>
+         {{#with sessions}}
+       <li>{{warmup}}</li>
        <li>{{exercise1}}</li>
        <li>{{exercise2}}</li>
        <li>{{exercise3}}</li>
        <li>{{exercise4}}</li>
+       {{/with}}
      </ul>
-     {{/with}}
   </div>
 <button class="add-session-notes"><i class="fa fa-plus"></i>Add Session Notes</button>
 <br/>

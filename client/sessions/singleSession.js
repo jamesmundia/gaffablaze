@@ -37,7 +37,6 @@ Template.singleSession.helpers({
   addSessionNotesMode() {
     return Template.instance().addSessionNotesMode.get();
   },
-
 });
 
 Template.sessionNotes.helpers({
