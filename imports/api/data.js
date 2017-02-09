@@ -201,17 +201,15 @@ Schemas.indyPlayerEvalForGameSchema = new SimpleSchema({
     autoform: {
       type: 'hidden'
     },
-    denyUpdate: true,
   },
   gameId: {
     type: String,
     autoform: {
-      autoValue() {
-        FlowRouter.getParam('gameId');
+      value: function() {
+        return FlowRouter.getParam('gameId');
       },
-      type: 'hidden',
+      type: 'hidden'
     },
-    denyUpdate: true,
   },
   indybuildup: {
     type: Number,
@@ -263,6 +261,12 @@ Schemas.indyPlayerEvalForGameSchema = new SimpleSchema({
       rows: 3,
     },
   },
+});
+
+Schemas.IndyGameEvals = new SimpleSchema({
+  playerGameEvalEntry: {
+    type: [Schemas.indyPlayerEvalForGameSchema],
+  }
 });
 
 Schemas.Player = new SimpleSchema({

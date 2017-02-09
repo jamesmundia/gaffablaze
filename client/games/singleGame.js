@@ -15,6 +15,7 @@ Template.singleGame.onCreated(function () {
       var teamId = FlowRouter.getParam('teamId');
       self.subscribe('singleGame', gameId);
       self.subscribe('singleTeam', teamId);
+      self.subscribe('singleGameEvals', gameId);
     });
     this.updateGameMode = new ReactiveVar(false);
 });
@@ -48,5 +49,9 @@ Template.indyPlayerEvalsForGame.helpers({
   },
   playersForGameEvals() {
     return Players;
-  }
+  },
+  thisPlayerId() {
+    var playerId = this.playerId;
+    return Players.findOne({ playerId: playerId });
+  },
 });

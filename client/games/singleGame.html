@@ -28,6 +28,12 @@
     <li class="list-group-item"> {{this}}</li> <br>
          {{/each}}
          </ul>
+
+         <ul class="list-group">
+         {{#each indygameevals.indyGameComments}}
+         <li class="list-group-item"> {{this}}</li> <br>
+          {{/each}}
+        </ul>
        </div>
  </div>
    <button class="update-game"><i class="fa fa-plus"></i>Evaluate Game</button>
@@ -38,31 +44,10 @@
           {{> updateGame}}
  {{/if}}
 
-<!--
-<h5>Player Evaluations</h5>
-<table class="table table-bordered table-condensed">
-  <thead>
-    <tr>
-      <td style="width: 85px">Players</td>
-      <td>Comments</td>
-      <td style="width: 250px">Add Comments</td>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each players}}
-    <tr>
-      <td>{{this.name}}</td>
-      <td>{{this.indyGameComments}}</td>
-      <td>
-        {{#autoForm collection=indyPlayerEvalGameSchema doc=this
-          id="indyPlayerEvalForm" type="insert" autosave=true}}
-          {{> afFormGroup name="indyGameComments"}}
-          {{/autoForm}}
-        </td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
--->
+<h6>Player Evaluations</h6>
+
+{{#each players}}
+ {{> indyPlayerEvalsForGame}}
+{{/each}}
 
 </template>

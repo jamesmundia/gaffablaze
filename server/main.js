@@ -6,6 +6,7 @@ import { Players } from '../imports/api/data';
 import { Schemas } from '../imports/api/data';
 import { Games } from '../imports/api/data';
 import { Sessions } from '../imports/api/data';
+import { IndyGameEvals } from '../imports/api/data';
 import { check } from 'meteor/check';
 
 import '../imports/methods';
@@ -77,5 +78,17 @@ Meteor.publish('singleSession', function (sessionId, teamId) {
   }
   return this.ready();
 });
+
+Meteor.publish('singleGameEvals', function (gameId){
+  check(gameId, String);
+
+  playerGameComments = IndyGameEvals.find({ gameId: gameId });
+
+  if (playerGameComments) {
+    return playerGameComments;
+  }
+return this.ready();
+});
+
 Meteor.startup(() => {
 });
