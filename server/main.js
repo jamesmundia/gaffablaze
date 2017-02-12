@@ -33,7 +33,11 @@ Meteor.publish('singleTeam', function (teamId) {
 });
 Meteor.publish('singleGame', function (gameId) {
   check(gameId, String);
-    thisGame = Games.find({ gameId: gameId });
+    thisGame = [
+      Games.find({ gameId: gameId }),
+      IndyGameEvals.find({ gameId: gameId })
+    ];
+
   if (thisGame) {
       return thisGame;
     }
@@ -77,17 +81,6 @@ Meteor.publish('singleSession', function (sessionId, teamId) {
     return thisSession;
   }
   return this.ready();
-});
-
-Meteor.publish('singleGameEvals', function (gameId){
-  check(gameId, String);
-
-  playerGameComments = IndyGameEvals.find({ gameId: gameId });
-
-  if (playerGameComments) {
-    return playerGameComments;
-  }
-return this.ready();
 });
 
 Meteor.startup(() => {

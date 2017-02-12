@@ -15,7 +15,6 @@ Template.singleGame.onCreated(function () {
       var teamId = FlowRouter.getParam('teamId');
       self.subscribe('singleGame', gameId);
       self.subscribe('singleTeam', teamId);
-      self.subscribe('singleGameEvals', gameId);
     });
     this.updateGameMode = new ReactiveVar(false);
 });
@@ -43,9 +42,10 @@ Template.singleGame.helpers({
   updateGameMode: function () {
     return Template.instance().updateGameMode.get();
   },
-  indyGameNotes() {
-    return IndyGameEvals.find({});
-  }
+  playerGameNotes: () => {
+    var gameId = FlowRouter.getParam('gameId');
+    return IndyGameEvals.find({ gameId: gameId })
+  },
 });
 
 Template.indyPlayerEvalsForGame.helpers({
