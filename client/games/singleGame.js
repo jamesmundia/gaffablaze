@@ -19,11 +19,13 @@ Template.singleGame.onCreated(function () {
     });
     this.updateGameMode = new ReactiveVar(false);
 });
+
 Template.singleGame.events({
   'click .update-game': function (event, template) {
     template.updateGameMode.set(!template.updateGameMode.get())
   },
 });
+
 Template.singleGame.helpers({
   teams: () => {
     var teamId = FlowRouter.getParam('teamId');
@@ -41,6 +43,9 @@ Template.singleGame.helpers({
   updateGameMode: function () {
     return Template.instance().updateGameMode.get();
   },
+  indyGameNotes() {
+    return IndyGameEvals.find({});
+  }
 });
 
 Template.indyPlayerEvalsForGame.helpers({
@@ -51,7 +56,7 @@ Template.indyPlayerEvalsForGame.helpers({
     return Players;
   },
   thisPlayerId() {
-    var playerId = this.playerId;
+    var playerId = this;
     return Players.findOne({ playerId: playerId });
   },
 });
