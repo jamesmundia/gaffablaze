@@ -6,6 +6,7 @@ import { Players } from '../imports/api/data';
 import { Schemas } from '../imports/api/data';
 import { Games } from '../imports/api/data';
 import { Sessions } from '../imports/api/data';
+import { IndyGameEvals } from '../imports/api/data';
 import { check } from 'meteor/check';
 
 import '../imports/methods';
@@ -32,7 +33,11 @@ Meteor.publish('singleTeam', function (teamId) {
 });
 Meteor.publish('singleGame', function (gameId) {
   check(gameId, String);
-    thisGame = Games.find({ gameId: gameId });
+    thisGame = [
+      Games.find({ gameId: gameId }),
+      IndyGameEvals.find({ gameId: gameId })
+    ];
+
   if (thisGame) {
       return thisGame;
     }
@@ -77,5 +82,6 @@ Meteor.publish('singleSession', function (sessionId, teamId) {
   }
   return this.ready();
 });
+
 Meteor.startup(() => {
 });

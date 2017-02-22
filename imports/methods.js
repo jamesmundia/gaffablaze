@@ -4,6 +4,7 @@ import { Games } from '../imports/api/data';
 import { Players } from '../imports/api/data';
 import { Teams } from '../imports/api/data';
 import { Sessions } from '../imports/api/data';
+import { IndyGameEvals } from '../imports/api/data';
 import { Schemas } from '../imports/api/data';
 
 import { check } from 'meteor/check';
@@ -41,5 +42,12 @@ Meteor.methods({
     }
 
     Games.update(_id, modifier);
+  },
+  playerGameEvalMethod(indyPlayerEvalFormForGame) {
+    check(indyPlayerEvalFormForGame, Schemas.indyPlayerEvalForGameSchema);
+    if (!this.userId) {
+      throw new Meteor.Error('500', 'Must be logged in to add new sessions.');
+    }
+    IndyGameEvals.insert(indyPlayerEvalFormForGame);
   },
 });
