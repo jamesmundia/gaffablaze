@@ -31,13 +31,6 @@
        </div>
  </div>
 
-         <ul class="list-group">
-           Yo -
-         {{#each indygameevals.indyGameComments}}
-         <li class="list-group-item"> {{this}}</li> <br>
-          {{/each}}
-        </ul>
-
    <button class="update-game"><i class="fa fa-plus"></i>Evaluate Game</button>
 <br/>
    {{#if updateGameMode}}
@@ -46,10 +39,12 @@
           {{> updateGame}}
  {{/if}}
 
+ <!--
 <h6>Player Evaluations</h6>
 
 {{#each players}}
  {{> indyPlayerEvalsForGame}}
 {{/each}}
+-->
 
 </template>

@@ -239,7 +239,7 @@ Schemas.indyPlayerEvalForGameSchema = new SimpleSchema({
     max: 5,
     optional: true,
   },
-  indyfincore: {
+  indyfinscore: {
     type: Number,
     label: 'Individual Finishing Scoring Chances Rating',
     min: 1,
@@ -263,11 +263,13 @@ Schemas.indyPlayerEvalForGameSchema = new SimpleSchema({
   },
 });
 
+/*
 Schemas.IndyGameEvals = new SimpleSchema({
   playerGameEvalEntry: {
-    type: [Schemas.indyPlayerEvalForGameSchema],
+    type: Schemas.indyPlayerEvalForGameSchema,
   }
 });
+*/
 
 Schemas.Player = new SimpleSchema({
   playerId: { type: String,
@@ -311,7 +313,7 @@ return age year of team and attach it to all added players
   //playerevals: { type: ['PlayerEval'], optional: true },
   seasonEvaluation: {
     type: Schemas.seasonEvaluationSchema,
-    optional: true
+    optional: true,
   },
 });
 
@@ -427,6 +429,7 @@ denyUpdate: true,
 Teams.attachSchema(Schemas.Team);
 Players.attachSchema(Schemas.Player);
 Players.attachSchema(Schemas.seasonEvaluationSchema);
+Players.attachSchema(Schemas.indyPlayerEvalForGameSchema);
 Games.attachSchema(Schemas.Game);
 Sessions.attachSchema(Schemas.Session);
 IndyGameEvals.attachSchema(Schemas.indyPlayerEvalForGameSchema);
