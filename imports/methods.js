@@ -38,16 +38,16 @@ Meteor.methods({
   updateGameMethod: function (modifier, _id) {
      check (modifier, Schemas.Game);
     if (!this.userId) {
-      throw new Meteor.Error('500', 'Must be logged in to add new sessions.');
+      throw new Meteor.Error('500', 'Must be logged in to evaluate games.');
     }
 
     Games.update(_id, modifier);
   },
-  playerGameEvalMethod(indyPlayerEvalFormForGame) {
-    check(indyPlayerEvalFormForGame, Schemas.indyPlayerEvalForGameSchema);
-    if (!this.userId) {
-      throw new Meteor.Error('500', 'Must be logged in to add new sessions.');
+  submitPlayerNoteMethod(modifier, _id) {
+    check (modifier, Schemas.playerNotesSchema);
+    if(!this.userId) {
+      throw new Meteor.Error('500', 'Must be logged in to evaluate players.');
     }
-    IndyGameEvals.insert(indyPlayerEvalFormForGame);
-  },
+    Players.update(_id, modifier);
+  }
 });

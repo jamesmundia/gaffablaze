@@ -1,0 +1,9 @@
+<template name="playerNotes">
+  {{#autoForm collection=addNotesToPlayer id="submitPlayerNotes" doc=thisPlayer type="method-update"
+  meteormethod="submitPlayerNoteMethod" autosave=true}}
+  <fieldset>
+      <legend>Player Notes</legend>
+      {{> afQuickField name='indyPlayerNotes' rows=10}}
+  </fieldset>
+  {{/autoForm}}
+</template>

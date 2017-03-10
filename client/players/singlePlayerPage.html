@@ -9,7 +9,16 @@
 </div>
 </div>
 
-{{>seasonEval}}
+{{>playerNotes}}
+<br/>
+
+<button class="season-eval"><i class="fa fa-plus"></i>Season Evaluation</button>
+    {{#if doSeasonEvalMode}}
+    <br/>
+    <br/>
+
+        <p>Click Season Evaluation to Cancel</p>
+            <div>{{> seasonEval}}</div>
 
 <div class="panel panel-default">
   <div class="panel-body">
@@ -19,4 +28,5 @@
 </ul>
 </div>
 </div>
+            {{/if}}
 </template>

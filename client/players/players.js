@@ -13,7 +13,9 @@ Template.singlePlayerPage.onCreated(function () {
 		var playerId = FlowRouter.getParam('playerId');
     var teamId = FlowRouter.getParam('teamId');
 		self.subscribe('singlePlayer', playerId, teamId);
-  })
+})
+  this.doSeasonEvalMode = new ReactiveVar(false);
+
 });
 
 Template.addPlayer.helpers ({
@@ -41,7 +43,16 @@ Template.singlePlayerPage.helpers({
     //only show games with this teamId, use for now instead of template level subs
     var teamId = FlowRouter.getParam('teamId');
     return Games.find({teamId: teamId});
-      }
+  },
+  doSeasonEvalMode() {
+    return Template.instance().doSeasonEvalMode.get();
+  }
+});
+
+Template.singlePlayerPage.events({
+  'click .season-eval': function (event, template) {
+    template.doSeasonEvalMode.set(!template.doSeasonEvalMode.get())
+  },
 });
 
 /*Template.teamPage.helpers ({

@@ -62,29 +62,29 @@ SimpleSchema.debug = true;
 Schemas.Team = new SimpleSchema({
   coach: {
     type: String,
-    autoValue: function () {
+    autoValue() {
       return Meteor.userId();
     },
-        autoform: {
-          type: "hidden"
-        }
-        },
+    autoform: {
+      type: 'hidden'
+    }
+  },
   teamId: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
-    autoValue: function() {
+    autoValue() {
       return Random.id();
-        },
+    },
     denyUpdate: true,
     autoform: {
-        type: 'hidden'
-       }
+      type: 'hidden'
+    }
   },
-  teamname: { type: String, label: "Team Name", max: 30 },
-  clubname: { type: String, label: "Club Name", max: 30 },
-  ageyear: { type: Number, label: "Team Birth Year",
-     autoform: {type: 'select'}
-},
+  teamname: { type: String, label: 'Team Name', max: 30 },
+  clubname: { type: String, label: 'Club Name', max: 30 },
+  ageyear: { type: Number, label: 'Team Birth Year',
+    autoform: { type: 'select' }
+  },
 });
 Schemas.Exercise = new SimpleSchema({
   exerciseDetails: {
@@ -195,6 +195,15 @@ Schemas.seasonEvaluationSchema = new SimpleSchema({
 }
 });
 
+Schemas.playerNotesSchema = new SimpleSchema({
+  indyPlayerNotes: {
+    type: String,
+    label: 'Add Player Notes Through the Season Here',
+    optional: true
+  },
+});
+
+/*
 Schemas.indyPlayerEvalForGameSchema = new SimpleSchema({
   playerId: {
     type: String,
@@ -263,7 +272,6 @@ Schemas.indyPlayerEvalForGameSchema = new SimpleSchema({
   },
 });
 
-/*
 Schemas.IndyGameEvals = new SimpleSchema({
   playerGameEvalEntry: {
     type: Schemas.indyPlayerEvalForGameSchema,
@@ -283,8 +291,8 @@ Schemas.Player = new SimpleSchema({
       type: 'hidden'
     },
     denyUpdate: true,
-},
-teamId: {
+  },
+  teamId: {
   type: String,
   autoform: {
     value: function() {
@@ -315,6 +323,10 @@ return age year of team and attach it to all added players
     type: Schemas.seasonEvaluationSchema,
     optional: true,
   },
+  playerNotes: {
+    type: Schemas.playerNotesSchema,
+    optional: true,
+  }
 });
 
 Schemas.Game = new SimpleSchema({
@@ -429,6 +441,7 @@ denyUpdate: true,
 Teams.attachSchema(Schemas.Team);
 Players.attachSchema(Schemas.Player);
 Players.attachSchema(Schemas.seasonEvaluationSchema);
+Players.attachSchema(Schemas.playerNotesSchema);
 Players.attachSchema(Schemas.indyPlayerEvalForGameSchema);
 Games.attachSchema(Schemas.Game);
 Sessions.attachSchema(Schemas.Session);

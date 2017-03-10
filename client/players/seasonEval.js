@@ -14,3 +14,13 @@ Template.seasonEval.helpers({
     return Players.findOne({ playerId: playerId });
   },
 });
+
+Template.playerNotes.helpers({
+  addNotesToPlayer: function () {
+    return Players;
+  },
+  thisPlayer: function() {
+    var playerId = FlowRouter.getParam('playerId');
+    return Players.findOne({ playerId: playerId });
+  }
+});
